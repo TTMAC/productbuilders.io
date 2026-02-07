@@ -1,0 +1,36 @@
+---
+interface Props {
+  currentDiscipline?: string;
+}
+
+const { currentDiscipline } = Astro.props;
+
+const disciplines = [
+  { value: '', label: 'All Disciplines' },
+  { value: 'PM', label: 'Product Management' },
+  { value: 'Design', label: 'Design' },
+  { value: 'Engineering', label: 'Engineering' },
+];
+---
+
+<div class="flex flex-wrap gap-2 mb-8">
+  {
+    disciplines.map((discipline) => (
+      <a
+        href={discipline.value ? `/articles?discipline=${discipline.value}` : '/articles'}
+        class:list={[
+          'px-4 py-2 rounded-lg font-medium transition-colors',
+          {
+            'bg-blue-600 text-white':
+              currentDiscipline === discipline.value ||
+              (!currentDiscipline && !discipline.value),
+            'bg-gray-200 text-gray-700 hover:bg-gray-300':
+              currentDiscipline !== discipline.value && (currentDiscipline || discipline.value),
+          },
+        ]}
+      >
+        {discipline.label}
+      </a>
+    ))
+  }
+</div>

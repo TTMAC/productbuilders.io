@@ -1,0 +1,26 @@
+---
+// TODO: Phase 2 - Implement book card component
+// This component will display book reviews with cover, rating, and metadata
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  book: CollectionEntry<'books'>;
+}
+
+const { book } = Astro.props;
+---
+
+<div
+  class="bg-gray-100 rounded-lg p-6 border-2 border-dashed border-gray-300 hover:border-gray-400 transition-colors"
+>
+  <p class="text-gray-500 text-xs font-semibold mb-2 uppercase tracking-wide">
+    Phase 2: Book Card Component
+  </p>
+  <h3 class="font-bold text-lg text-gray-900 mb-1">{book.data.title}</h3>
+  <p class="text-sm text-gray-600 mb-2">By {book.data.bookAuthor}</p>
+  <div class="flex items-center gap-2 text-xs text-gray-500">
+    <span class="px-2 py-1 bg-gray-200 rounded">{book.data.discipline}</span>
+    <span class="px-2 py-1 bg-gray-200 rounded">{book.data.level}</span>
+    <span>Rating: {book.data.rating}/5</span>
+  </div>
+</div>

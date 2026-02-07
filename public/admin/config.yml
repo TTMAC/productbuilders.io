@@ -1,0 +1,98 @@
+# Decap CMS (formerly Netlify CMS) configuration
+# Per plan - Schema parity with Zod schemas in src/schemas/content.ts
+
+backend:
+  name: git-gateway
+  branch: main
+
+# Enable local backend for development
+local_backend: true
+
+media_folder: "public/images/uploads"
+public_folder: "/images/uploads"
+
+collections:
+  # Articles collection - matches articleSchema from src/schemas/content.ts
+  - name: "articles"
+    label: "Articles"
+    folder: "src/content/articles"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string", hint: "Max 60 chars for SEO", pattern: ['^.{1,60}$', "Must be 60 characters or less"] }
+      - { label: "Description", name: "description", widget: "text", hint: "Max 155 chars for SEO", pattern: ['^.{1,155}$', "Must be 155 characters or less"] }
+      - { label: "Publish Date", name: "publishDate", widget: "datetime" }
+      - { label: "Updated Date", name: "updatedDate", widget: "datetime", required: false }
+      - { label: "Author", name: "author", widget: "string", default: "Tshepo Machele" }
+      - {
+          label: "Disciplines",
+          name: "disciplines",
+          widget: "select",
+          multiple: true,
+          min: 1,
+          options: ["PM", "Design", "Engineering"],
+          hint: "Select at least 1 discipline. Per DOMAIN_MODEL.md - articles use disciplines array."
+        }
+      - { label: "Tags", name: "tags", widget: "list", default: [], required: false }
+      - { label: "Draft", name: "draft", widget: "boolean", default: false }
+      - { label: "Featured", name: "featured", widget: "boolean", default: false }
+      - { label: "Hero Image", name: "heroImage", widget: "image", required: false }
+      - { label: "Hero Image Alt", name: "heroImageAlt", widget: "string", required: false }
+      - { label: "Body", name: "body", widget: "markdown" }
+
+  # Books collection - matches bookReviewSchema from src/schemas/content.ts
+  - name: "books"
+    label: "Books (Phase 2)"
+    folder: "src/content/books"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Book Author", name: "bookAuthor", widget: "string" }
+      - {
+          label: "Discipline",
+          name: "discipline",
+          widget: "select",
+          options: ["PM", "Design", "Engineering"],
+          hint: "Per DOMAIN_MODEL.md - books use single discipline field."
+        }
+      - {
+          label: "Level",
+          name: "level",
+          widget: "select",
+          options: ["Junior", "Mid-Level", "Senior"]
+        }
+      - {
+          label: "Rating",
+          name: "rating",
+          widget: "number",
+          value_type: "int",
+          min: 1,
+          max: 5
+        }
+      - {
+          label: "Publication Year",
+          name: "publicationYear",
+          widget: "number",
+          value_type: "int",
+          hint: "Per CLAUDE.md - must be at least 5 years old"
+        }
+      - { label: "Tags", name: "tags", widget: "list", default: [], required: false }
+      - {
+          label: "Cross-Functional Value",
+          name: "crossFunctionalValue",
+          widget: "text",
+          hint: "Explain value to other disciplines"
+        }
+      - {
+          label: "Key Takeaways",
+          name: "keyTakeaways",
+          widget: "list",
+          min: 3,
+          max: 5,
+          hint: "3-5 key takeaways"
+        }
+      - { label: "Who Should Read", name: "whoShouldRead", widget: "text" }
+      - { label: "Affiliate Link", name: "affiliateLink", widget: "string", required: false }
+      - { label: "Draft", name: "draft", widget: "boolean", default: false }
+      - { label: "Body", name: "body", widget: "markdown" }

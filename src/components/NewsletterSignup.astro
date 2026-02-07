@@ -1,0 +1,95 @@
+---
+// Newsletter signup component
+// Submits to Netlify serverless function to protect Buttondown API key
+---
+
+<div class="bg-blue-50 rounded-lg p-8">
+  <h3 class="text-2xl font-bold text-gray-900 mb-4">Subscribe to our newsletter</h3>
+  <p class="text-gray-600 mb-6">
+    Get the latest cross-functional insights delivered weekly to your inbox.
+  </p>
+
+  <form id="newsletter-form" class="space-y-4">
+    <div class="flex flex-col sm:flex-row gap-4">
+      <input
+        type="email"
+        name="email"
+        placeholder="your@email.com"
+        required
+        class="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+      />
+      <button
+        type="submit"
+        class="btn btn-primary whitespace-nowrap"
+        id="newsletter-submit-btn"
+      >
+        Subscribe
+      </button>
+    </div>
+
+    <div>
+      <label for="discipline" class="block text-sm text-gray-600 mb-1">
+        Your discipline (optional):
+      </label>
+      <select
+        name="discipline"
+        id="discipline"
+        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+      >
+        <option value="">Select...</option>
+        <option value="PM">Product Management</option>
+        <option value="Design">Design</option>
+        <option value="Engineering">Engineering</option>
+      </select>
+    </div>
+  </form>
+
+  <div id="newsletter-message" class="mt-4 hidden"></div>
+</div>
+
+<script>
+  const form = document.getElementById('newsletter-form') as HTMLFormElement;
+  const message = document.getElementById('newsletter-message') as HTMLDivElement;
+  const submitBtn = document.getElementById('newsletter-submit-btn') as HTMLButtonElement;
+
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    // Disable button during submission
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Subscribing...';
+
+    const formData = new FormData(form);
+    const email = formData.get('email');
+    const discipline = formData.get('discipline');
+
+    try {
+      const response = await fetch('/.netlify/functions/subscribe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, discipline }),
+      });
+
+      const data = await response.json();
+      message.classList.remove('hidden');
+
+      if (response.ok) {
+        message.className = 'mt-4 p-4 bg-green-100 text-green-800 rounded-lg';
+        message.textContent = 'Successfully subscribed! Check your email to confirm.';
+        form.reset();
+      } else {
+        message.className = 'mt-4 p-4 bg-red-100 text-red-800 rounded-lg';
+        message.textContent = data.error || 'Something went wrong. Please try again.';
+      }
+    } catch (error) {
+      message.classList.remove('hidden');
+      message.className = 'mt-4 p-4 bg-red-100 text-red-800 rounded-lg';
+      message.textContent = 'Network error. Please try again later.';
+      console.error('Newsletter signup error:', error);
+    } finally {
+      // Re-enable button
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Subscribe';
+    }
+  });
+</script>

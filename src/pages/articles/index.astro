@@ -1,0 +1,65 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import ArticleCard from '@components/ArticleCard.astro';
+import DisciplineFilter from '@components/DisciplineFilter.astro';
+import { getCollection } from 'astro:content';
+import { filterDrafts, filterByDiscipline } from '@/utils/content';
+import { sortByDate } from '@/utils/date';
+
+// Get discipline from query params
+const discipline = Astro.url.searchParams.get('discipline') || undefined;
+
+// Fetch and filter articles
+const allArticles = await getCollection('articles');
+const publishedArticles = filterDrafts(allArticles);
+const filteredArticles = filterByDiscipline(publishedArticles, discipline);
+const sortedArticles = sortByDate(filteredArticles);
+---
+
+<BaseLayout
+  title="Articles"
+  description="Browse our collection of cross-functional product insights for PMs, designers, and engineers"
+>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Articles</h1>
+    <p class="text-xl text-gray-600 mb-8">
+      Cross-functional insights for building exceptional products
+    </p>
+
+    <!-- Discipline filter -->
+    <DisciplineFilter currentDiscipline={discipline} />
+
+    <!-- Articles grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {sortedArticles.map((article) => <ArticleCard article={article} />)}
+    </div>
+
+    <!-- Empty state -->
+    {
+      sortedArticles.length === 0 && (
+        <div class="text-center py-16">
+          <svg
+            class="w-16 h-16 text-gray-400 mx-auto mb-4"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+            />
+          </svg>
+          <h3 class="text-xl font-semibold text-gray-700 mb-2">No articles found</h3>
+          <p class="text-gray-500 mb-4">
+            Try selecting a different discipline or check back soon for new content.
+          </p>
+          <a href="/articles" class="text-blue-600 hover:text-blue-800 font-medium">
+            View all articles
+          </a>
+        </div>
+      )
+    }
+  </div>
+</BaseLayout>

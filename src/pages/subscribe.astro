@@ -1,0 +1,83 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import NewsletterSignup from '@components/NewsletterSignup.astro';
+---
+
+<BaseLayout
+  title="Subscribe"
+  description="Subscribe to get weekly product insights delivered to your inbox"
+>
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-8">
+      Subscribe to Our Newsletter
+    </h1>
+
+    <div class="mb-8">
+      <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+        Join our community of product managers, designers, and engineers. Get weekly insights
+        delivered straight to your inbox.
+      </p>
+
+      <h2 class="text-2xl font-bold text-gray-900 mb-4">What You'll Get</h2>
+      <ul class="space-y-3 text-gray-700">
+        <li class="flex items-start">
+          <svg class="w-6 h-6 text-green-500 mr-3 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+            <path
+              fill-rule="evenodd"
+              d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+              clip-rule="evenodd"
+            ></path>
+          </svg>
+          <span>Weekly curated articles on product development across PM, Design, and Engineering</span>
+        </li>
+        <li class="flex items-start">
+          <svg class="w-6 h-6 text-green-500 mr-3 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+            <path
+              fill-rule="evenodd"
+              d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+              clip-rule="evenodd"
+            ></path>
+          </svg>
+          <span>Cross-functional perspectives on every topic - learn from all three disciplines</span>
+        </li>
+        <li class="flex items-start">
+          <svg class="w-6 h-6 text-green-500 mr-3 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+            <path
+              fill-rule="evenodd"
+              d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+              clip-rule="evenodd"
+            ></path>
+          </svg>
+          <span>Book recommendations and reviews for continuous learning</span>
+        </li>
+        <li class="flex items-start">
+          <svg class="w-6 h-6 text-green-500 mr-3 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+            <path
+              fill-rule="evenodd"
+              d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+              clip-rule="evenodd"
+            ></path>
+          </svg>
+          <span>No spam, unsubscribe anytime - we respect your inbox</span>
+        </li>
+      </ul>
+    </div>
+
+    <NewsletterSignup />
+
+    <div class="mt-12 pt-8 border-t border-gray-200">
+      <h3 class="text-xl font-bold text-gray-900 mb-4">Why Subscribe?</h3>
+      <div class="prose prose-lg">
+        <p>
+          Most product content focuses on a single discipline. Our newsletter takes a different
+          approach by exploring how product managers, designers, and engineers can work together
+          more effectively.
+        </p>
+        <p>
+          Each week, we send curated insights that help you understand your cross-functional
+          partners better and build stronger products together.
+        </p>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

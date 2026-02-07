@@ -1,0 +1,41 @@
+---
+// TODO: Phase 2 - Implement book reviews index page
+import BaseLayout from '@layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+import { filterDrafts } from '@/utils/content';
+import BookGrid from '@components/BookGrid.astro';
+
+const allBooks = await getCollection('books');
+const publishedBooks = filterDrafts(allBooks);
+---
+
+<BaseLayout
+  title="Books"
+  description="Product development book reviews for PMs, designers, and engineers"
+>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <!-- Phase 2 indicator -->
+    <div class="bg-yellow-50 border-2 border-yellow-400 rounded-lg p-8 mb-8">
+      <h2 class="text-2xl font-bold text-yellow-900 mb-4">Phase 2: Book Reviews</h2>
+      <p class="text-yellow-800 mb-4">
+        This section will feature curated book reviews for product professionals.
+      </p>
+      <ul class="list-disc list-inside text-yellow-700 space-y-2">
+        <li>150+ book reviews across PM, Design, and Engineering</li>
+        <li>Filter by discipline and career level</li>
+        <li>Cross-functional value highlighted for each book</li>
+        <li>Search and purchase links</li>
+        <li>Personalized recommendations</li>
+      </ul>
+    </div>
+
+    <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Book Reviews</h1>
+    <p class="text-xl text-gray-600 mb-8">
+      Curated book recommendations for product builders
+      <span class="text-sm text-gray-500">(Coming in Phase 2)</span>
+    </p>
+
+    <!-- Display any existing book content (stubs) -->
+    <BookGrid books={publishedBooks} />
+  </div>
+</BaseLayout>

@@ -1,0 +1,20 @@
+---
+// TODO: Phase 2 - Implement individual book review pages
+import BookLayout from '@layouts/BookLayout.astro';
+import { getCollection } from 'astro:content';
+import { filterDrafts } from '@/utils/content';
+
+export async function getStaticPaths() {
+  const books = await getCollection('books');
+  const publishedBooks = filterDrafts(books);
+
+  return publishedBooks.map((book) => ({
+    params: { slug: book.slug },
+    props: { book },
+  }));
+}
+
+const { book } = Astro.props;
+---
+
+<BookLayout book={book} />

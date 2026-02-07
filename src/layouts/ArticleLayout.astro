@@ -1,0 +1,97 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import { formatDate, getDisciplineLabel, getDisciplineColor, calculateReadingTime, getWordCount } from '@/utils';
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  article: CollectionEntry<'articles'>;
+}
+
+const { article } = Astro.props;
+const {
+  title,
+  description,
+  publishDate,
+  updatedDate,
+  author,
+  disciplines,
+  heroImage,
+  heroImageAlt,
+} = article.data;
+
+const { Content } = await article.render();
+
+// Calculate reading time
+const readingTime = calculateReadingTime(getWordCount(article.body));
+---
+
+<BaseLayout title={title} description={description} image={heroImage}>
+  <article class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <header class="mb-8">
+      <!-- Discipline badges and metadata -->
+      <div class="flex items-center gap-3 mb-4 flex-wrap">
+        {
+          disciplines.map((discipline) => (
+            <span class={`badge-${getDisciplineColor(discipline)}`}>
+              {getDisciplineLabel(discipline)}
+            </span>
+          ))
+        }
+        <time class="text-gray-500 text-sm" datetime={publishDate.toISOString()}>
+          {formatDate(publishDate)}
+        </time>
+        <span class="text-gray-500 text-sm">{readingTime} min read</span>
+      </div>
+
+      <!-- Title and description -->
+      <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4 leading-tight">
+        {title}
+      </h1>
+      <p class="text-xl text-gray-600 mb-6 leading-relaxed">{description}</p>
+
+      <!-- Author and update info -->
+      <div class="flex items-center gap-4 text-gray-600 text-sm">
+        <span>By {author}</span>
+        {
+          updatedDate && (
+            <span class="text-sm">Updated {formatDate(updatedDate)}</span>
+          )
+        }
+      </div>
+    </header>
+
+    <!-- Hero image -->
+    {
+      heroImage && (
+        <img
+          src={heroImage}
+          alt={heroImageAlt || title}
+          class="w-full rounded-lg mb-8 shadow-lg"
+          loading="eager"
+        />
+      )
+    }
+
+    <!-- Article content -->
+    <div class="prose-custom">
+      <Content />
+    </div>
+
+    <!-- Article footer -->
+    <footer class="mt-12 pt-8 border-t border-gray-200">
+      <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+        <a
+          href="/articles"
+          class="text-blue-600 hover:text-blue-800 font-medium transition-colors"
+        >
+          &larr; Back to articles
+        </a>
+
+        <!-- Share section (future enhancement) -->
+        <div class="text-sm text-gray-500">
+          <p>Share this article with your team</p>
+        </div>
+      </div>
+    </footer>
+  </article>
+</BaseLayout>

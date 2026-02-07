@@ -1,0 +1,88 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="About"
+  description="Learn about ProductBuilders.io and our mission to support cross-functional product teams"
+>
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-8">About ProductBuilders.io</h1>
+
+    <div class="prose-custom">
+      <p class="text-xl text-gray-600 mb-8 leading-relaxed">
+        ProductBuilders.io is a resource hub for professionals building digital products across
+        product management, design, and engineering.
+      </p>
+
+      <h2>Our Mission</h2>
+      <p>
+        We believe great products are built at the intersection of product management, design, and
+        engineering. Our mission is to share insights, best practices, and resources that help
+        teams build better products through cross-functional collaboration.
+      </p>
+
+      <h2>What We Cover</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 not-prose my-8">
+        <div class="bg-pm-light p-6 rounded-lg">
+          <h3 class="text-lg font-bold text-pm-dark mb-2">Product Management</h3>
+          <ul class="text-sm text-gray-700 space-y-1">
+            <li>Strategy & roadmapping</li>
+            <li>User research & discovery</li>
+            <li>Metrics & analytics</li>
+            <li>Stakeholder management</li>
+          </ul>
+        </div>
+
+        <div class="bg-design-light p-6 rounded-lg">
+          <h3 class="text-lg font-bold text-design-dark mb-2">Design</h3>
+          <ul class="text-sm text-gray-700 space-y-1">
+            <li>UX/UI principles</li>
+            <li>Design systems</li>
+            <li>User-centered design</li>
+            <li>Prototyping & testing</li>
+          </ul>
+        </div>
+
+        <div class="bg-engineering-light p-6 rounded-lg">
+          <h3 class="text-lg font-bold text-engineering-dark mb-2">Engineering</h3>
+          <ul class="text-sm text-gray-700 space-y-1">
+            <li>Architecture & patterns</li>
+            <li>Best practices</li>
+            <li>Technical leadership</li>
+            <li>Performance & scalability</li>
+          </ul>
+        </div>
+      </div>
+
+      <h2>Why Cross-Functional?</h2>
+      <p>
+        Most product content focuses on a single discipline. We take a different approach by
+        exploring how product managers, designers, and engineers can work together more
+        effectively. Every article includes perspectives from multiple disciplines and actionable
+        takeaways for each role.
+      </p>
+
+      <h2>Who We're For</h2>
+      <p>
+        Whether you're a product manager trying to understand design trade-offs, a designer
+        learning about technical constraints, or an engineer exploring product strategy,
+        ProductBuilders.io helps you develop a shared vocabulary and mutual understanding with your
+        cross-functional partners.
+      </p>
+
+      <h2>Stay Connected</h2>
+      <p>
+        <a href="/subscribe">Subscribe to our newsletter</a> to get weekly insights delivered to your
+        inbox, or follow our <a href="/rss.xml">RSS feed</a> to stay updated with new articles.
+      </p>
+
+      <h2>About the Author</h2>
+      <p>
+        ProductBuilders.io is created by <strong>Tshepo Machele</strong>, a product builder with
+        experience across product management, design, and engineering. This multi-disciplinary
+        background informs every piece of content on the site.
+      </p>
+    </div>
+  </div>
+</BaseLayout>
