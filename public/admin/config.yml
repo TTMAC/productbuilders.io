@@ -8,6 +8,10 @@ backend:
 # Enable local backend for development
 local_backend: true
 
+# Editorial Workflow - Content Approval Process
+# Enables Draft → In Review → Ready status tracking
+publish_mode: editorial_workflow
+
 media_folder: "public/images/uploads"
 public_folder: "/images/uploads"
 
