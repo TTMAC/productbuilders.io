@@ -76,3 +76,62 @@ export function getDisciplineColor(discipline: string): string {
   };
   return colors[discipline] || 'gray';
 }
+
+/**
+ * Get related articles for a given article
+ * Per UX Spec - prioritize cross-discipline content
+ * Scoring: +3 shared discipline, +2 cross-discipline bonus, +1 shared tag
+ * @param currentArticle - The article to find related content for
+ * @param allArticles - Pool of all published articles
+ * @param count - Number of related articles to return (default: 3)
+ * @returns Array of related articles, sorted by relevance
+ */
+export function getRelatedArticles(
+  currentArticle: CollectionEntry<'articles'>,
+  allArticles: CollectionEntry<'articles'>[],
+  count: number = 3
+): CollectionEntry<'articles'>[] {
+  const candidates = allArticles.filter((a) => a.slug !== currentArticle.slug);
+
+  if (candidates.length === 0) return [];
+
+  const scored = candidates.map((candidate) => {
+    let score = 0;
+
+    // +3 for each shared discipline
+    const currentDisciplines = currentArticle.data.disciplines;
+    const candidateDisciplines = candidate.data.disciplines;
+    for (const d of candidateDisciplines) {
+      if (currentDisciplines.includes(d)) {
+        score += 3;
+      }
+    }
+
+    // +2 bonus if candidate has a discipline NOT in current article (cross-functional bridging)
+    for (const d of candidateDisciplines) {
+      if (!currentDisciplines.includes(d)) {
+        score += 2;
+        break;
+      }
+    }
+
+    // +1 for each shared tag
+    const currentTags = currentArticle.data.tags || [];
+    const candidateTags = candidate.data.tags || [];
+    for (const tag of candidateTags) {
+      if (currentTags.includes(tag)) {
+        score += 1;
+      }
+    }
+
+    return { article: candidate, score };
+  });
+
+  // Sort by score descending, break ties by publishDate descending
+  scored.sort((a, b) => {
+    if (b.score !== a.score) return b.score - a.score;
+    return b.article.data.publishDate.getTime() - a.article.data.publishDate.getTime();
+  });
+
+  return scored.slice(0, count).map((s) => s.article);
+}

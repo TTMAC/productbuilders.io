@@ -1,0 +1,88 @@
+---
+// Reading progress bar for article pages
+// Per UX Spec §7.4 - Progress bar at top, back-to-top after 25% scroll
+---
+
+<!-- Fixed progress bar at top of viewport (z-60 above sticky header z-50) -->
+<div
+  id="reading-progress-container"
+  class="fixed top-0 left-0 w-full h-1 z-[60] bg-transparent pointer-events-none opacity-0 transition-opacity duration-300"
+  aria-hidden="true"
+>
+  <div
+    id="reading-progress-bar"
+    class="h-full bg-blue-600 will-change-[width]"
+    style="width: 0%"
+  ></div>
+</div>
+
+<!-- Back to top button (appears after 25% scroll) -->
+<button
+  id="back-to-top"
+  class="fixed bottom-8 right-8 hidden p-3 rounded-full bg-blue-600 text-white shadow-lg hover:bg-blue-700 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 z-50"
+  aria-label="Back to top"
+>
+  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"></path>
+  </svg>
+</button>
+
+<script>
+  const progressContainer = document.getElementById('reading-progress-container');
+  const progressBar = document.getElementById('reading-progress-bar');
+  const backToTop = document.getElementById('back-to-top');
+  const article = document.querySelector('.prose-custom');
+
+  if (progressContainer && progressBar && backToTop && article) {
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (prefersReducedMotion) {
+      progressContainer.classList.remove('transition-opacity', 'duration-300');
+    }
+
+    let ticking = false;
+
+    function updateProgress() {
+      const articleRect = article!.getBoundingClientRect();
+      const articleTop = articleRect.top + window.scrollY;
+      const articleHeight = articleRect.height;
+      const scrolled = window.scrollY - articleTop;
+      const progress = Math.min(Math.max(scrolled / articleHeight, 0), 1) * 100;
+
+      progressBar!.style.width = `${progress}%`;
+
+      if (progress > 0) {
+        progressContainer!.classList.remove('opacity-0');
+        progressContainer!.classList.add('opacity-100');
+      } else {
+        progressContainer!.classList.remove('opacity-100');
+        progressContainer!.classList.add('opacity-0');
+      }
+
+      if (progress >= 25) {
+        backToTop!.classList.remove('hidden');
+      } else {
+        backToTop!.classList.add('hidden');
+      }
+
+      ticking = false;
+    }
+
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        requestAnimationFrame(updateProgress);
+        ticking = true;
+      }
+    }, { passive: true });
+
+    backToTop.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: prefersReducedMotion ? 'auto' : 'smooth',
+      });
+    });
+
+    // Initial calculation
+    updateProgress();
+  }
+</script>

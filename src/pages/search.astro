@@ -1,0 +1,35 @@
+---
+// Full search page using Pagefind UI widget
+// Per UX Spec - comprehensive search results with highlighted matches
+import BaseLayout from '@layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Search" description="Search all ProductBuilders.io articles and content.">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <h1 class="text-4xl font-bold text-gray-900 mb-8">Search</h1>
+    <div id="search"></div>
+  </div>
+</BaseLayout>
+
+<link rel="stylesheet" href="/pagefind/pagefind-ui.css" />
+<script is:inline src="/pagefind/pagefind-ui.js"></script>
+<script is:inline>
+  window.addEventListener('DOMContentLoaded', function() {
+    new PagefindUI({
+      element: '#search',
+      showSubResults: true,
+      showImages: false,
+    });
+
+    // Pre-fill search from URL query param
+    var params = new URLSearchParams(window.location.search);
+    var query = params.get('q');
+    if (query) {
+      var input = document.querySelector('#search input');
+      if (input) {
+        input.value = query;
+        input.dispatchEvent(new Event('input', { bubbles: true }));
+      }
+    }
+  });
+</script>

@@ -57,12 +57,14 @@ const siteTitle = `${title} | ProductBuilders.io`;
 
     <!-- Plausible Analytics - Per SRD §9 -->
     <script
+      is:inline
       defer
       data-domain="productbuilders.io"
       src="https://plausible.io/js/script.js"></script>
 
-    <!-- Preconnect to improve performance -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <!-- Font preloading for self-hosted fonts -->
+    <link rel="preload" href="/fonts/Inter-Variable.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/JetBrainsMono-Variable.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="dns-prefetch" href="https://plausible.io" />
   </head>
   <body>

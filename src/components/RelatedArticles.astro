@@ -1,0 +1,24 @@
+---
+// Related articles section for article pages
+// Per PRD §F1.2 and UX Spec - 3 related articles, prioritize cross-discipline
+
+import ArticleCard from './ArticleCard.astro';
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  articles: CollectionEntry<'articles'>[];
+}
+
+const { articles } = Astro.props;
+---
+
+{articles.length > 0 && (
+  <section class="mt-16 pt-8 border-t border-gray-200">
+    <h2 class="text-2xl font-bold text-gray-900 mb-8">Related Articles</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {articles.map((article) => (
+        <ArticleCard article={article} />
+      ))}
+    </div>
+  </section>
+)}
