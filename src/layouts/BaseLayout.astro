@@ -1,6 +1,7 @@
 ---
 import Header from '@components/Header.astro';
 import Footer from '@components/Footer.astro';
+import CookieConsent from '@components/CookieConsent.astro';
 import '@/styles/global.css';
 
 interface Props {
@@ -55,17 +56,26 @@ const siteTitle = `${title} | ProductBuilders.io`;
       href="/rss.xml"
     />
 
-    <!-- Plausible Analytics - Per SRD §9 -->
-    <script
-      is:inline
-      defer
-      data-domain="productbuilders.io"
-      src="https://plausible.io/js/script.js"></script>
+    <!-- Google Analytics 4 -->
+    {import.meta.env.GOOGLE_ANALYTICS_ID && (
+      <>
+        <script is:inline async src={`https://www.googletagmanager.com/gtag/js?id=${import.meta.env.GOOGLE_ANALYTICS_ID}`}></script>
+        <script is:inline define:vars={{ gaId: import.meta.env.GOOGLE_ANALYTICS_ID }}>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', gaId, {
+            anonymize_ip: true,
+            cookie_flags: 'SameSite=None;Secure'
+          });
+        </script>
+      </>
+    )}
 
     <!-- Font preloading for self-hosted fonts -->
     <link rel="preload" href="/fonts/Inter-Variable.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="/fonts/JetBrainsMono-Variable.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="dns-prefetch" href="https://plausible.io" />
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
   </head>
   <body>
     <Header />
@@ -73,5 +83,6 @@ const siteTitle = `${title} | ProductBuilders.io`;
       <slot />
     </main>
     <Footer />
+    <CookieConsent />
   </body>
 </html>
