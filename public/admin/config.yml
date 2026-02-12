@@ -5,8 +5,9 @@ backend:
   name: git-gateway
   branch: main
 
-# Enable local backend for development
-local_backend: true
+# Local backend for development only
+# Uncomment the line below when developing locally:
+# local_backend: true
 
 # Editorial Workflow - Content Approval Process
 # Enables Draft → In Review → Ready status tracking
