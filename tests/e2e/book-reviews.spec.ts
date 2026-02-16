@@ -21,10 +21,29 @@ test.describe('Book Reviews Index Page', () => {
     await page.click('a:has-text("Product Management")');
     await expect(page).toHaveURL(/discipline=PM/);
 
+    // PM filter button should be active (blue)
+    const pmBtn = page.locator('.filter-btn[data-filter-value="PM"]');
+    await expect(pmBtn).toHaveClass(/bg-blue-600/);
+
     // Cards should still be visible (both books are PM)
-    const cards = page.locator('article');
-    const count = await cards.count();
+    const visibleCards = page.locator('.book-card:visible');
+    const count = await visibleCards.count();
     expect(count).toBeGreaterThanOrEqual(1);
+  });
+
+  test('discipline filter hides non-matching cards', async ({ page }) => {
+    await page.goto('/books?discipline=Design');
+
+    // No Design books exist — all cards should be hidden
+    const visibleCards = page.locator('.book-card:visible');
+    const count = await visibleCards.count();
+    expect(count).toBe(0);
+
+    // Empty state should be visible
+    await expect(page.locator('#empty-state')).toBeVisible();
+
+    // Count should say 0
+    await expect(page.locator('#book-count')).toHaveText('0 book reviews');
   });
 
   test('level filter works on books page', async ({ page }) => {
@@ -34,10 +53,27 @@ test.describe('Book Reviews Index Page', () => {
     await page.click('a:has-text("Junior")');
     await expect(page).toHaveURL(/level=Junior/);
 
+    // Junior filter button should be active (dark)
+    const juniorBtn = page.locator('.filter-btn[data-filter-value="Junior"]');
+    await expect(juniorBtn).toHaveClass(/bg-gray-800/);
+
     // Cards should still be visible (both books are Junior)
-    const cards = page.locator('article');
-    const count = await cards.count();
+    const visibleCards = page.locator('.book-card:visible');
+    const count = await visibleCards.count();
     expect(count).toBeGreaterThanOrEqual(1);
+  });
+
+  test('combined filters preserve both params', async ({ page }) => {
+    await page.goto('/books?discipline=PM&level=Junior');
+
+    // Both filters should be active
+    await expect(page.locator('.filter-btn[data-filter-value="PM"]')).toHaveClass(/bg-blue-600/);
+    await expect(page.locator('.filter-btn[data-filter-value="Junior"]')).toHaveClass(/bg-gray-800/);
+
+    // Discipline filter links should preserve level param
+    const designLink = page.locator('.filter-btn[data-filter-value="Design"]');
+    const href = await designLink.getAttribute('href');
+    expect(href).toContain('level=Junior');
   });
 
   test('books are sorted by rating descending', async ({ page }) => {
