@@ -1,9 +1,11 @@
 ---
 interface Props {
   currentDiscipline?: string;
+  basePath?: string;
+  preserveParams?: Record<string, string>;
 }
 
-const { currentDiscipline } = Astro.props;
+const { currentDiscipline, basePath = '/articles', preserveParams = {} } = Astro.props;
 
 const disciplines = [
   { value: '', label: 'All Disciplines' },
@@ -15,22 +17,32 @@ const disciplines = [
 
 <div class="flex flex-wrap gap-2 mb-8">
   {
-    disciplines.map((discipline) => (
-      <a
-        href={discipline.value ? `/articles?discipline=${discipline.value}` : '/articles'}
-        class:list={[
-          'px-4 py-2 rounded-lg font-medium transition-colors',
-          {
-            'bg-blue-600 text-white':
-              currentDiscipline === discipline.value ||
-              (!currentDiscipline && !discipline.value),
-            'bg-gray-200 text-gray-700 hover:bg-gray-300':
-              currentDiscipline !== discipline.value && (currentDiscipline || discipline.value),
-          },
-        ]}
-      >
-        {discipline.label}
-      </a>
-    ))
+    disciplines.map((discipline) => {
+      const params = new URLSearchParams();
+      // Preserve other query params (e.g., level on books page)
+      for (const [key, val] of Object.entries(preserveParams)) {
+        if (val) params.set(key, val);
+      }
+      if (discipline.value) params.set('discipline', discipline.value);
+      const href = params.toString() ? `${basePath}?${params.toString()}` : basePath;
+
+      return (
+        <a
+          href={href}
+          class:list={[
+            'px-4 py-2 rounded-lg font-medium transition-colors',
+            {
+              'bg-blue-600 text-white':
+                currentDiscipline === discipline.value ||
+                (!currentDiscipline && !discipline.value),
+              'bg-gray-200 text-gray-700 hover:bg-gray-300':
+                currentDiscipline !== discipline.value && (currentDiscipline || discipline.value),
+            },
+          ]}
+        >
+          {discipline.label}
+        </a>
+      );
+    })
   }
 </div>

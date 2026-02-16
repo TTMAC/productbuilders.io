@@ -1,10 +1,12 @@
 import { describe, it, expect } from 'vitest';
 import {
   filterByDiscipline,
+  filterByLevel,
   filterDrafts,
   getFeaturedArticles,
   getDisciplineLabel,
   getDisciplineColor,
+  getRelatedBooks,
 } from '../../../src/utils/content';
 
 describe('filterByDiscipline', () => {
@@ -194,5 +196,144 @@ describe('getDisciplineColor', () => {
 
   it('should_return_gray_for_empty_string', () => {
     expect(getDisciplineColor('')).toBe('gray');
+  });
+});
+
+describe('filterByLevel', () => {
+  const createMockBook = (level: string) => ({
+    data: { level, discipline: 'PM', rating: 4 },
+    slug: 'test',
+    collection: 'books' as const,
+  });
+
+  it('should_return_all_items_when_no_level_specified', () => {
+    const books = [
+      createMockBook('Junior'),
+      createMockBook('Mid-Level'),
+      createMockBook('Senior'),
+    ];
+
+    const result = filterByLevel(books, undefined);
+    expect(result).toHaveLength(3);
+  });
+
+  it('should_filter_books_by_level', () => {
+    const books = [
+      createMockBook('Junior'),
+      createMockBook('Mid-Level'),
+      createMockBook('Junior'),
+      createMockBook('Senior'),
+    ];
+
+    const result = filterByLevel(books, 'Junior');
+    expect(result).toHaveLength(2);
+    expect(result.every((b) => b.data.level === 'Junior')).toBe(true);
+  });
+
+  it('should_return_empty_when_no_matches', () => {
+    const books = [
+      createMockBook('Junior'),
+      createMockBook('Mid-Level'),
+    ];
+
+    const result = filterByLevel(books, 'Senior');
+    expect(result).toEqual([]);
+  });
+
+  it('should_handle_empty_array', () => {
+    const result = filterByLevel([], 'Junior');
+    expect(result).toEqual([]);
+  });
+});
+
+describe('getRelatedBooks', () => {
+  const createMockBook = (
+    slug: string,
+    discipline: string,
+    level: string,
+    tags: string[] = [],
+    title: string = slug
+  ) => ({
+    data: { discipline, level, tags, title, bookAuthor: 'Author', rating: 4, keyTakeaways: ['t1', 't2', 't3'], whoShouldRead: 'Everyone', crossFunctionalValue: 'High', publicationYear: 2015, draft: false },
+    slug,
+    collection: 'books' as const,
+  });
+
+  it('should_exclude_current_book', () => {
+    const current = createMockBook('book-a', 'PM', 'Junior');
+    const all = [current, createMockBook('book-b', 'PM', 'Junior')];
+
+    const result = getRelatedBooks(current as any, all as any);
+    expect(result).toHaveLength(1);
+    expect(result[0].slug).toBe('book-b');
+  });
+
+  it('should_score_same_discipline_higher', () => {
+    const current = createMockBook('current', 'PM', 'Junior');
+    const sameDiscipline = createMockBook('same-disc', 'PM', 'Senior');
+    const diffDiscipline = createMockBook('diff-disc', 'Design', 'Junior');
+    const all = [current, diffDiscipline, sameDiscipline];
+
+    const result = getRelatedBooks(current as any, all as any);
+    // same discipline (+3) + different level (0) = 3
+    // diff discipline (0) + same level (+2) = 2
+    expect(result[0].slug).toBe('same-disc');
+    expect(result[1].slug).toBe('diff-disc');
+  });
+
+  it('should_score_same_level_as_bonus', () => {
+    const current = createMockBook('current', 'PM', 'Junior');
+    const sameLevel = createMockBook('same-level', 'Design', 'Junior');
+    const diffLevel = createMockBook('diff-level', 'Design', 'Senior');
+    const all = [current, diffLevel, sameLevel];
+
+    const result = getRelatedBooks(current as any, all as any);
+    // sameLevel: diff discipline (0) + same level (+2) = 2
+    // diffLevel: diff discipline (0) + diff level (0) = 0
+    expect(result[0].slug).toBe('same-level');
+  });
+
+  it('should_score_shared_tags', () => {
+    const current = createMockBook('current', 'Design', 'Senior', ['ux', 'research']);
+    const sharedTags = createMockBook('shared', 'Engineering', 'Junior', ['ux', 'research']);
+    const noTags = createMockBook('no-tags', 'Engineering', 'Junior', []);
+    const all = [current, noTags, sharedTags];
+
+    const result = getRelatedBooks(current as any, all as any);
+    // sharedTags: +0 disc + +0 level + +2 tags = 2
+    // noTags: +0 disc + +0 level + +0 tags = 0
+    expect(result[0].slug).toBe('shared');
+  });
+
+  it('should_limit_results_to_count', () => {
+    const current = createMockBook('current', 'PM', 'Junior');
+    const all = [
+      current,
+      createMockBook('b1', 'PM', 'Junior'),
+      createMockBook('b2', 'PM', 'Junior'),
+      createMockBook('b3', 'PM', 'Junior'),
+      createMockBook('b4', 'PM', 'Junior'),
+    ];
+
+    const result = getRelatedBooks(current as any, all as any, 2);
+    expect(result).toHaveLength(2);
+  });
+
+  it('should_return_empty_when_no_other_books', () => {
+    const current = createMockBook('current', 'PM', 'Junior');
+    const result = getRelatedBooks(current as any, [current] as any);
+    expect(result).toEqual([]);
+  });
+
+  it('should_break_ties_by_title_alphabetically', () => {
+    const current = createMockBook('current', 'PM', 'Junior');
+    const bookA = createMockBook('a-book', 'Design', 'Senior', [], 'Alpha Book');
+    const bookZ = createMockBook('z-book', 'Design', 'Senior', [], 'Zeta Book');
+    const all = [current, bookZ, bookA];
+
+    const result = getRelatedBooks(current as any, all as any);
+    // Both score 0, tiebreak by title
+    expect(result[0].slug).toBe('a-book');
+    expect(result[1].slug).toBe('z-book');
   });
 });

@@ -1,0 +1,48 @@
+---
+interface Props {
+  currentLevel?: string;
+  basePath?: string;
+}
+
+const { currentLevel, basePath = '/books' } = Astro.props;
+
+const levels = [
+  { value: '', label: 'All Levels' },
+  { value: 'Junior', label: 'Junior' },
+  { value: 'Mid-Level', label: 'Mid-Level' },
+  { value: 'Senior', label: 'Senior' },
+];
+
+// Preserve discipline query param when filtering by level
+const url = new URL(Astro.request.url);
+const currentDiscipline = url.searchParams.get('discipline');
+---
+
+<div class="flex flex-wrap gap-2 mb-8">
+  {
+    levels.map((level) => {
+      const params = new URLSearchParams();
+      if (currentDiscipline) params.set('discipline', currentDiscipline);
+      if (level.value) params.set('level', level.value);
+      const href = params.toString() ? `${basePath}?${params.toString()}` : basePath;
+
+      return (
+        <a
+          href={href}
+          class:list={[
+            'px-4 py-2 rounded-lg font-medium transition-colors',
+            {
+              'bg-gray-800 text-white':
+                currentLevel === level.value ||
+                (!currentLevel && !level.value),
+              'bg-gray-200 text-gray-700 hover:bg-gray-300':
+                currentLevel !== level.value && (currentLevel || level.value),
+            },
+          ]}
+        >
+          {level.label}
+        </a>
+      );
+    })
+  }
+</div>
