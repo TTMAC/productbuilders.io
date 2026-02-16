@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
   "createdAt": "2026-02-16T19:40:39.262Z",
-  "updatedAt": "2026-02-16T21:00:00.000Z",
+  "updatedAt": "2026-02-16T19:46:40.620Z",
   "summary": {
-    "reviewed": 2,
+    "reviewed": 1,
     "pending": 131,
     "deferred": 4,
-    "failed": 0,
+    "failed": 1,
     "skipped": 0,
     "total": 137
   },
@@ -44,9 +44,7 @@
         2
       ],
       "listPosition": 2,
-      "status": "reviewed",
-      "reviewFile": "src/content/books/2026-02-16-the-mom-test.md",
-      "reviewDate": "2026-02-16"
+      "status": "pending"
     },
     {
       "id": "the lean startup",
@@ -876,7 +874,8 @@
         54
       ],
       "listPosition": 3,
-      "status": "pending"
+      "status": "failed",
+      "failureReason": "Generation failed: Command failed: claude -p \"/draft-book #54\""
     },
     {
       "id": "100 things every designer needs to know about people",
