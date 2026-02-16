@@ -467,7 +467,6 @@ Git push → Netlify webhook → npm run build (Astro SSG) → Pagefind post-bui
 > Remove when no longer applicable
 
 ```
-- [2025-02-07] Book review features: Skip all book-related tests/components until Phase 2 (Month 4)
 - [2025-02-07] E2E tests: Skip Lighthouse E2E until first deployment to Netlify
 - [2025-02-07] Analytics: Plausible custom events deferred until Month 2 (basic pageviews first)
 ```

@@ -121,6 +121,14 @@
   }
 
   /*
+   * Level badge - neutral gray pill for Junior/Mid-Level/Senior
+   */
+  .badge-level {
+    @apply bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm font-medium;
+    @apply transition-colors duration-200;
+  }
+
+  /*
    * Card styles for consistent component styling
    */
   .card {

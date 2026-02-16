@@ -78,6 +78,71 @@ export function getDisciplineColor(discipline: string): string {
 }
 
 /**
+ * Filter books by career level
+ * @param books - Array of books with level field
+ * @param level - Level to filter by (undefined returns all)
+ * @returns Filtered array
+ */
+export function filterByLevel<T extends { data: { level?: string } }>(
+  items: T[],
+  level: string | undefined
+): T[] {
+  if (!level) return items;
+  return items.filter((item) => item.data.level === level);
+}
+
+/**
+ * Get related books for a given book
+ * Scoring: +3 same discipline, +2 same level, +1 shared tag
+ * @param currentBook - The book to find related content for
+ * @param allBooks - Pool of all published books
+ * @param count - Number of related books to return (default: 3)
+ * @returns Array of related books, sorted by relevance
+ */
+export function getRelatedBooks(
+  currentBook: CollectionEntry<'books'>,
+  allBooks: CollectionEntry<'books'>[],
+  count: number = 3
+): CollectionEntry<'books'>[] {
+  const candidates = allBooks.filter((b) => b.slug !== currentBook.slug);
+
+  if (candidates.length === 0) return [];
+
+  const scored = candidates.map((candidate) => {
+    let score = 0;
+
+    // +3 for same discipline
+    if (candidate.data.discipline === currentBook.data.discipline) {
+      score += 3;
+    }
+
+    // +2 for same level
+    if (candidate.data.level === currentBook.data.level) {
+      score += 2;
+    }
+
+    // +1 for each shared tag
+    const currentTags = currentBook.data.tags || [];
+    const candidateTags = candidate.data.tags || [];
+    for (const tag of candidateTags) {
+      if (currentTags.includes(tag)) {
+        score += 1;
+      }
+    }
+
+    return { book: candidate, score };
+  });
+
+  // Sort by score descending, break ties by title alphabetically
+  scored.sort((a, b) => {
+    if (b.score !== a.score) return b.score - a.score;
+    return a.book.data.title.localeCompare(b.book.data.title);
+  });
+
+  return scored.slice(0, count).map((s) => s.book);
+}
+
+/**
  * Get related articles for a given article
  * Per UX Spec - prioritize cross-discipline content
  * Scoring: +3 shared discipline, +2 cross-discipline bonus, +1 shared tag
