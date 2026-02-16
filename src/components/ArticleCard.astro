@@ -27,7 +27,7 @@ const {
 const readingTime = calculateReadingTime(getWordCount(article.body));
 ---
 
-<article class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+<article class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow article-card" data-disciplines={disciplines.join(',')}>
   {
     heroImage && (
       <a href={`/articles/${article.slug}`} class="block">
