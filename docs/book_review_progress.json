@@ -1,0 +1,2274 @@
+{
+  "schemaVersion": 1,
+  "createdAt": "2026-02-16T19:40:39.262Z",
+  "updatedAt": "2026-02-16T19:40:39.264Z",
+  "summary": {
+    "reviewed": 1,
+    "pending": 132,
+    "deferred": 4,
+    "failed": 0,
+    "skipped": 0,
+    "total": 137
+  },
+  "books": [
+    {
+      "id": "inspired",
+      "title": "Inspired: How to Create Tech Products Customers Love",
+      "author": "Marty Cagan",
+      "year": 2017,
+      "discipline": "PM",
+      "level": "Junior",
+      "allDisciplines": [
+        "PM"
+      ],
+      "csvRows": [
+        1
+      ],
+      "listPosition": 1,
+      "status": "reviewed",
+      "reviewFile": "src/content/books/2026-01-10-inspired.md",
+      "reviewDate": "2026-01-10",
+      "weekNumber": 0
+    },
+    {
+      "id": "the mom test",
+      "title": "The Mom Test",
+      "author": "Rob Fitzpatrick",
+      "year": 2013,
+      "discipline": "PM",
+      "level": "Junior",
+      "allDisciplines": [
+        "PM"
+      ],
+      "csvRows": [
+        2
+      ],
+      "listPosition": 2,
+      "status": "pending"
+    },
+    {
+      "id": "the lean startup",
+      "title": "The Lean Startup",
+      "author": "Eric Ries",
+      "year": 2011,
+      "discipline": "PM",
+      "level": "Junior",
+      "allDisciplines": [
+        "PM"
+      ],
+      "csvRows": [
+        3
+      ],
+      "listPosition": 3,
+      "status": "pending"
+    },
+    {
+      "id": "cracking the pm interview",
+      "title": "Cracking the PM Interview",
+      "author": "Gayle McDowell & Jackie Bavaro",
+      "year": 2013,
+      "discipline": "PM",
+      "level": "Junior",
+      "allDisciplines": [
+        "PM"
+      ],
+      "csvRows": [
+        4
+      ],
+      "listPosition": 4,
+      "status": "pending"
+    },
+    {
+      "id": "hooked",
+      "title": "Hooked: How to Build Habit-Forming Products",
+      "author": "Nir Eyal",
+      "year": 2014,
+      "discipline": "PM",
+      "level": "Junior",
+      "allDisciplines": [
+        "PM",
+        "Design"
+      ],
+      "csvRows": [
+        5,
+        74
+      ],
+      "listPosition": 5,
+      "status": "pending"
+    },
+    {
+      "id": "don't make me think",
+      "title": "Don't Make Me Think",
+      "author": "Steve Krug",
+      "year": 2014,
+      "discipline": "PM",
+      "level": "Junior",
+      "allDisciplines": [
+        "PM",
+        "Design"
+      ],
+      "csvRows": [
+        6,
+        53
+      ],
+      "listPosition": 6,
+      "status": "pending"
+    },
+    {
+      "id": "the design of everyday things",
+      "title": "The Design of Everyday Things",
+      "author": "Don Norman",
+      "year": 2013,
+      "discipline": "PM",
+      "level": "Junior",
+      "allDisciplines": [
+        "PM",
+        "Design"
+      ],
+      "csvRows": [
+        7,
+        52
+      ],
+      "listPosition": 7,
+      "status": "pending"
+    },
+    {
+      "id": "the lean product playbook",
+      "title": "The Lean Product Playbook",
+      "author": "Dan Olsen",
+      "year": 2015,
+      "discipline": "PM",
+      "level": "Junior",
+      "allDisciplines": [
+        "PM"
+      ],
+      "csvRows": [
+        8
+      ],
+      "listPosition": 8,
+      "status": "pending"
+    },
+    {
+      "id": "sprint",
+      "title": "Sprint: How to Solve Big Problems in 5 Days",
+      "author": "Jake Knapp",
+      "year": 2016,
+      "discipline": "PM",
+      "level": "Junior",
+      "allDisciplines": [
+        "PM",
+        "Design"
+      ],
+      "csvRows": [
+        9,
+        75
+      ],
+      "listPosition": 9,
+      "status": "pending"
+    },
+    {
+      "id": "the product book",
+      "title": "The Product Book",
+      "author": "Josh Anon & Carlos González de Villaumbrosia",
+      "year": 2017,
+      "discipline": "PM",
+      "level": "Junior",
+      "allDisciplines": [
+        "PM"
+      ],
+      "csvRows": [
+        10
+      ],
+      "listPosition": 10,
+      "status": "pending"
+    },
+    {
+      "id": "user story mapping",
+      "title": "User Story Mapping",
+      "author": "Jeff Patton",
+      "year": 2014,
+      "discipline": "PM",
+      "level": "Junior",
+      "allDisciplines": [
+        "PM"
+      ],
+      "csvRows": [
+        11
+      ],
+      "listPosition": 11,
+      "status": "pending"
+    },
+    {
+      "id": "lean analytics",
+      "title": "Lean Analytics",
+      "author": "Alistair Croll & Benjamin Yoskovitz",
+      "year": 2013,
+      "discipline": "PM",
+      "level": "Junior",
+      "allDisciplines": [
+        "PM"
+      ],
+      "csvRows": [
+        12
+      ],
+      "listPosition": 12,
+      "status": "pending"
+    },
+    {
+      "id": "decode and conquer",
+      "title": "Decode and Conquer",
+      "author": "Lewis C. Lin",
+      "year": 2013,
+      "discipline": "PM",
+      "level": "Junior",
+      "allDisciplines": [
+        "PM"
+      ],
+      "csvRows": [
+        13
+      ],
+      "listPosition": 13,
+      "status": "pending"
+    },
+    {
+      "id": "running lean",
+      "title": "Running Lean",
+      "author": "Ash Maurya",
+      "year": 2012,
+      "discipline": "PM",
+      "level": "Junior",
+      "allDisciplines": [
+        "PM"
+      ],
+      "csvRows": [
+        14
+      ],
+      "listPosition": 14,
+      "status": "pending"
+    },
+    {
+      "id": "product management in practice",
+      "title": "Product Management in Practice",
+      "author": "Matt LeMay",
+      "year": 2017,
+      "discipline": "PM",
+      "level": "Junior",
+      "allDisciplines": [
+        "PM"
+      ],
+      "csvRows": [
+        15
+      ],
+      "listPosition": 15,
+      "status": "pending"
+    },
+    {
+      "id": "shape up",
+      "title": "Shape Up",
+      "author": "Ryan Singer",
+      "year": 2019,
+      "discipline": "PM",
+      "level": "Junior",
+      "allDisciplines": [
+        "PM"
+      ],
+      "csvRows": [
+        16
+      ],
+      "listPosition": 16,
+      "status": "pending"
+    },
+    {
+      "id": "swipe to unlock",
+      "title": "Swipe to Unlock",
+      "author": "Mehta, Detroja & Agashe",
+      "year": 2017,
+      "discipline": "PM",
+      "level": "Junior",
+      "allDisciplines": [
+        "PM"
+      ],
+      "csvRows": [
+        17
+      ],
+      "listPosition": 17,
+      "status": "pending"
+    },
+    {
+      "id": "continuous discovery habits",
+      "title": "Continuous Discovery Habits",
+      "author": "Teresa Torres",
+      "year": 2021,
+      "discipline": "PM",
+      "level": "Mid-Level",
+      "allDisciplines": [
+        "PM",
+        "Design"
+      ],
+      "csvRows": [
+        18,
+        97
+      ],
+      "listPosition": 18,
+      "status": "pending"
+    },
+    {
+      "id": "escaping the build trap",
+      "title": "Escaping the Build Trap",
+      "author": "Melissa Perri",
+      "year": 2018,
+      "discipline": "PM",
+      "level": "Mid-Level",
+      "allDisciplines": [
+        "PM"
+      ],
+      "csvRows": [
+        19
+      ],
+      "listPosition": 19,
+      "status": "pending"
+    },
+    {
+      "id": "the principles of product development flow",
+      "title": "The Principles of Product Development Flow",
+      "author": "Donald G. Reinertsen",
+      "year": 2009,
+      "discipline": "PM",
+      "level": "Mid-Level",
+      "allDisciplines": [
+        "PM",
+        "Engineering"
+      ],
+      "csvRows": [
+        20,
+        131
+      ],
+      "listPosition": 20,
+      "status": "pending"
+    },
+    {
+      "id": "crossing the chasm",
+      "title": "Crossing the Chasm",
+      "author": "Geoffrey Moore",
+      "year": 2014,
+      "discipline": "PM",
+      "level": "Mid-Level",
+      "allDisciplines": [
+        "PM"
+      ],
+      "csvRows": [
+        21
+      ],
+      "listPosition": 21,
+      "status": "pending"
+    },
+    {
+      "id": "the innovator's dilemma",
+      "title": "The Innovator's Dilemma",
+      "author": "Clayton Christensen",
+      "year": 1997,
+      "discipline": "PM",
+      "level": "Mid-Level",
+      "allDisciplines": [
+        "PM"
+      ],
+      "csvRows": [
+        22
+      ],
+      "listPosition": 22,
+      "status": "pending"
+    },
+    {
+      "id": "competing against luck",
+      "title": "Competing Against Luck",
+      "author": "Clayton Christensen",
+      "year": 2016,
+      "discipline": "PM",
+      "level": "Mid-Level",
+      "allDisciplines": [
+        "PM"
+      ],
+      "csvRows": [
+        23
+      ],
+      "listPosition": 23,
+      "status": "pending"
+    },
+    {
+      "id": "good strategy bad strategy",
+      "title": "Good Strategy Bad Strategy",
+      "author": "Richard Rumelt",
+      "year": 2011,
+      "discipline": "PM",
+      "level": "Mid-Level",
+      "allDisciplines": [
+        "PM",
+        "Design"
+      ],
+      "csvRows": [
+        24,
+        101
+      ],
+      "listPosition": 24,
+      "status": "pending"
+    },
+    {
+      "id": "thinking fast and slow",
+      "title": "Thinking, Fast and Slow",
+      "author": "Daniel Kahneman",
+      "year": 2011,
+      "discipline": "PM",
+      "level": "Mid-Level",
+      "allDisciplines": [
+        "PM",
+        "Design"
+      ],
+      "csvRows": [
+        25,
+        98
+      ],
+      "listPosition": 25,
+      "status": "pending"
+    },
+    {
+      "id": "obviously awesome",
+      "title": "Obviously Awesome",
+      "author": "April Dunford",
+      "year": 2019,
+      "discipline": "PM",
+      "level": "Mid-Level",
+      "allDisciplines": [
+        "PM"
+      ],
+      "csvRows": [
+        26
+      ],
+      "listPosition": 26,
+      "status": "pending"
+    },
+    {
+      "id": "the making of a manager",
+      "title": "The Making of a Manager",
+      "author": "Julie Zhuo",
+      "year": 2019,
+      "discipline": "PM",
+      "level": "Mid-Level",
+      "allDisciplines": [
+        "PM",
+        "Design",
+        "Engineering"
+      ],
+      "csvRows": [
+        27,
+        88,
+        145
+      ],
+      "listPosition": 27,
+      "status": "pending"
+    },
+    {
+      "id": "measure what matters",
+      "title": "Measure What Matters",
+      "author": "John Doerr",
+      "year": 2018,
+      "discipline": "PM",
+      "level": "Mid-Level",
+      "allDisciplines": [
+        "PM"
+      ],
+      "csvRows": [
+        28
+      ],
+      "listPosition": 28,
+      "status": "pending"
+    },
+    {
+      "id": "lean ux",
+      "title": "Lean UX",
+      "author": "Jeff Gothelf & Josh Seiden",
+      "year": 2013,
+      "discipline": "PM",
+      "level": "Mid-Level",
+      "allDisciplines": [
+        "PM",
+        "Design"
+      ],
+      "csvRows": [
+        29,
+        70
+      ],
+      "listPosition": 29,
+      "status": "pending"
+    },
+    {
+      "id": "influence",
+      "title": "Influence: The Psychology of Persuasion",
+      "author": "Robert Cialdini",
+      "year": 2006,
+      "discipline": "PM",
+      "level": "Mid-Level",
+      "allDisciplines": [
+        "PM"
+      ],
+      "csvRows": [
+        30
+      ],
+      "listPosition": 30,
+      "status": "pending"
+    },
+    {
+      "id": "getting to yes",
+      "title": "Getting to Yes",
+      "author": "Roger Fisher & William Ury",
+      "year": 2011,
+      "discipline": "PM",
+      "level": "Mid-Level",
+      "allDisciplines": [
+        "PM"
+      ],
+      "csvRows": [
+        31
+      ],
+      "listPosition": 31,
+      "status": "pending"
+    },
+    {
+      "id": "the goal",
+      "title": "The Goal",
+      "author": "Eliyahu Goldratt",
+      "year": 1984,
+      "discipline": "PM",
+      "level": "Mid-Level",
+      "allDisciplines": [
+        "PM"
+      ],
+      "csvRows": [
+        32
+      ],
+      "listPosition": 32,
+      "status": "pending"
+    },
+    {
+      "id": "radical candor",
+      "title": "Radical Candor",
+      "author": "Kim Scott",
+      "year": 2017,
+      "discipline": "PM",
+      "level": "Mid-Level",
+      "allDisciplines": [
+        "PM",
+        "Engineering"
+      ],
+      "csvRows": [
+        33,
+        150
+      ],
+      "listPosition": 33,
+      "status": "pending"
+    },
+    {
+      "id": "predictably irrational",
+      "title": "Predictably Irrational",
+      "author": "Dan Ariely",
+      "year": 2008,
+      "discipline": "PM",
+      "level": "Mid-Level",
+      "allDisciplines": [
+        "PM"
+      ],
+      "csvRows": [
+        34
+      ],
+      "listPosition": 34,
+      "status": "pending"
+    },
+    {
+      "id": "creative selection",
+      "title": "Creative Selection",
+      "author": "Ken Kocienda",
+      "year": 2018,
+      "discipline": "PM",
+      "level": "Mid-Level",
+      "allDisciplines": [
+        "PM"
+      ],
+      "csvRows": [
+        35
+      ],
+      "listPosition": 35,
+      "status": "pending"
+    },
+    {
+      "id": "empowered",
+      "title": "Empowered: Ordinary People, Extraordinary Products",
+      "author": "Marty Cagan",
+      "year": 2020,
+      "discipline": "PM",
+      "level": "Senior",
+      "allDisciplines": [
+        "PM",
+        "Engineering"
+      ],
+      "csvRows": [
+        36,
+        147
+      ],
+      "listPosition": 36,
+      "status": "pending"
+    },
+    {
+      "id": "zero to one",
+      "title": "Zero to One",
+      "author": "Peter Thiel & Blake Masters",
+      "year": 2014,
+      "discipline": "PM",
+      "level": "Senior",
+      "allDisciplines": [
+        "PM"
+      ],
+      "csvRows": [
+        37
+      ],
+      "listPosition": 37,
+      "status": "pending"
+    },
+    {
+      "id": "the hard thing about hard things",
+      "title": "The Hard Thing About Hard Things",
+      "author": "Ben Horowitz",
+      "year": 2014,
+      "discipline": "PM",
+      "level": "Senior",
+      "allDisciplines": [
+        "PM"
+      ],
+      "csvRows": [
+        38
+      ],
+      "listPosition": 38,
+      "status": "pending"
+    },
+    {
+      "id": "high output management",
+      "title": "High Output Management",
+      "author": "Andy Grove",
+      "year": 1983,
+      "discipline": "PM",
+      "level": "Senior",
+      "allDisciplines": [
+        "PM",
+        "Engineering"
+      ],
+      "csvRows": [
+        39,
+        142
+      ],
+      "listPosition": 39,
+      "status": "pending"
+    },
+    {
+      "id": "7 powers",
+      "title": "7 Powers: The Foundations of Business Strategy",
+      "author": "Hamilton Helmer",
+      "year": 2016,
+      "discipline": "PM",
+      "level": "Senior",
+      "allDisciplines": [
+        "PM"
+      ],
+      "csvRows": [
+        40
+      ],
+      "listPosition": 40,
+      "status": "pending"
+    },
+    {
+      "id": "product leadership",
+      "title": "Product Leadership",
+      "author": "Banfield, Eriksson & Walkingshaw",
+      "year": 2017,
+      "discipline": "PM",
+      "level": "Senior",
+      "allDisciplines": [
+        "PM"
+      ],
+      "csvRows": [
+        41
+      ],
+      "listPosition": 41,
+      "status": "pending"
+    },
+    {
+      "id": "playing to win",
+      "title": "Playing to Win",
+      "author": "A.G. Lafley & Roger Martin",
+      "year": 2013,
+      "discipline": "PM",
+      "level": "Senior",
+      "allDisciplines": [
+        "PM"
+      ],
+      "csvRows": [
+        42
+      ],
+      "listPosition": 42,
+      "status": "pending"
+    },
+    {
+      "id": "the mythical manmonth",
+      "title": "The Mythical Man-Month",
+      "author": "Fred Brooks",
+      "year": 1995,
+      "discipline": "PM",
+      "level": "Senior",
+      "allDisciplines": [
+        "PM",
+        "Engineering"
+      ],
+      "csvRows": [
+        43,
+        139
+      ],
+      "listPosition": 43,
+      "status": "pending"
+    },
+    {
+      "id": "blue ocean strategy",
+      "title": "Blue Ocean Strategy",
+      "author": "Kim & Mauborgne",
+      "year": 2015,
+      "discipline": "PM",
+      "level": "Senior",
+      "allDisciplines": [
+        "PM"
+      ],
+      "csvRows": [
+        44
+      ],
+      "listPosition": 44,
+      "status": "pending"
+    },
+    {
+      "id": "good to great",
+      "title": "Good to Great",
+      "author": "Jim Collins",
+      "year": 2001,
+      "discipline": "PM",
+      "level": "Senior",
+      "allDisciplines": [
+        "PM"
+      ],
+      "csvRows": [
+        45
+      ],
+      "listPosition": 45,
+      "status": "pending"
+    },
+    {
+      "id": "start with why",
+      "title": "Start with Why",
+      "author": "Simon Sinek",
+      "year": 2009,
+      "discipline": "PM",
+      "level": "Senior",
+      "allDisciplines": [
+        "PM"
+      ],
+      "csvRows": [
+        46
+      ],
+      "listPosition": 46,
+      "status": "pending"
+    },
+    {
+      "id": "leaders eat last",
+      "title": "Leaders Eat Last",
+      "author": "Simon Sinek",
+      "year": 2014,
+      "discipline": "PM",
+      "level": "Senior",
+      "allDisciplines": [
+        "PM"
+      ],
+      "csvRows": [
+        47
+      ],
+      "listPosition": 47,
+      "status": "pending"
+    },
+    {
+      "id": "dare to lead",
+      "title": "Dare to Lead",
+      "author": "Brené Brown",
+      "year": 2018,
+      "discipline": "PM",
+      "level": "Senior",
+      "allDisciplines": [
+        "PM"
+      ],
+      "csvRows": [
+        48
+      ],
+      "listPosition": 48,
+      "status": "pending"
+    },
+    {
+      "id": "work rules",
+      "title": "Work Rules!",
+      "author": "Laszlo Bock",
+      "year": 2015,
+      "discipline": "PM",
+      "level": "Senior",
+      "allDisciplines": [
+        "PM"
+      ],
+      "csvRows": [
+        49
+      ],
+      "listPosition": 49,
+      "status": "pending"
+    },
+    {
+      "id": "cracking the pm career",
+      "title": "Cracking the PM Career",
+      "author": "Bavaro & McDowell",
+      "year": 2021,
+      "discipline": "PM",
+      "level": "Senior",
+      "allDisciplines": [
+        "PM"
+      ],
+      "csvRows": [
+        50
+      ],
+      "listPosition": 50,
+      "status": "pending"
+    },
+    {
+      "id": "the innovator's solution",
+      "title": "The Innovator's Solution",
+      "author": "Christensen & Raynor",
+      "year": 2003,
+      "discipline": "PM",
+      "level": "Senior",
+      "allDisciplines": [
+        "PM"
+      ],
+      "csvRows": [
+        51
+      ],
+      "listPosition": 51,
+      "status": "pending"
+    },
+    {
+      "id": "the elements of user experience",
+      "title": "The Elements of User Experience",
+      "author": "Jesse James Garrett",
+      "year": 2011,
+      "discipline": "Design",
+      "level": "Junior",
+      "allDisciplines": [
+        "Design"
+      ],
+      "csvRows": [
+        54
+      ],
+      "listPosition": 3,
+      "status": "pending"
+    },
+    {
+      "id": "100 things every designer needs to know about people",
+      "title": "100 Things Every Designer Needs to Know About People",
+      "author": "Susan Weinschenk",
+      "year": 2011,
+      "discipline": "Design",
+      "level": "Junior",
+      "allDisciplines": [
+        "Design"
+      ],
+      "csvRows": [
+        55
+      ],
+      "listPosition": 4,
+      "status": "pending"
+    },
+    {
+      "id": "universal principles of design",
+      "title": "Universal Principles of Design",
+      "author": "Lidwell, Holden & Butler",
+      "year": 2020,
+      "discipline": "Design",
+      "level": "Junior",
+      "allDisciplines": [
+        "Design"
+      ],
+      "csvRows": [
+        56
+      ],
+      "listPosition": 5,
+      "status": "pending"
+    },
+    {
+      "id": "rocket surgery made easy",
+      "title": "Rocket Surgery Made Easy",
+      "author": "Steve Krug",
+      "year": 2010,
+      "discipline": "Design",
+      "level": "Junior",
+      "allDisciplines": [
+        "Design"
+      ],
+      "csvRows": [
+        57
+      ],
+      "listPosition": 6,
+      "status": "pending"
+    },
+    {
+      "id": "laws of ux",
+      "title": "Laws of UX",
+      "author": "Jon Yablonski",
+      "year": 2020,
+      "discipline": "Design",
+      "level": "Junior",
+      "allDisciplines": [
+        "Design"
+      ],
+      "csvRows": [
+        58
+      ],
+      "listPosition": 7,
+      "status": "pending"
+    },
+    {
+      "id": "the user experience team of one",
+      "title": "The User Experience Team of One",
+      "author": "Leah Buley",
+      "year": 2013,
+      "discipline": "Design",
+      "level": "Junior",
+      "allDisciplines": [
+        "Design"
+      ],
+      "csvRows": [
+        59
+      ],
+      "listPosition": 8,
+      "status": "pending"
+    },
+    {
+      "id": "designing with the mind in mind",
+      "title": "Designing with the Mind in Mind",
+      "author": "Jeff Johnson",
+      "year": 2014,
+      "discipline": "Design",
+      "level": "Junior",
+      "allDisciplines": [
+        "Design"
+      ],
+      "csvRows": [
+        60
+      ],
+      "listPosition": 9,
+      "status": "pending"
+    },
+    {
+      "id": "ux for beginners",
+      "title": "UX for Beginners",
+      "author": "Joel Marsh",
+      "year": 2016,
+      "discipline": "Design",
+      "level": "Junior",
+      "allDisciplines": [
+        "Design"
+      ],
+      "csvRows": [
+        61
+      ],
+      "listPosition": 10,
+      "status": "pending"
+    },
+    {
+      "id": "refactoring ui",
+      "title": "Refactoring UI",
+      "author": "Adam Wathan & Steve Schoger",
+      "year": 2018,
+      "discipline": "Design",
+      "level": "Junior",
+      "allDisciplines": [
+        "Design"
+      ],
+      "csvRows": [
+        62
+      ],
+      "listPosition": 11,
+      "status": "pending"
+    },
+    {
+      "id": "microinteractions",
+      "title": "Microinteractions",
+      "author": "Dan Saffer",
+      "year": 2013,
+      "discipline": "Design",
+      "level": "Junior",
+      "allDisciplines": [
+        "Design"
+      ],
+      "csvRows": [
+        63
+      ],
+      "listPosition": 12,
+      "status": "pending"
+    },
+    {
+      "id": "how to make sense of any mess",
+      "title": "How to Make Sense of Any Mess",
+      "author": "Abby Covert",
+      "year": 2014,
+      "discipline": "Design",
+      "level": "Junior",
+      "allDisciplines": [
+        "Design"
+      ],
+      "csvRows": [
+        64
+      ],
+      "listPosition": 13,
+      "status": "pending"
+    },
+    {
+      "id": "emotional design",
+      "title": "Emotional Design",
+      "author": "Don Norman",
+      "year": 2004,
+      "discipline": "Design",
+      "level": "Junior",
+      "allDisciplines": [
+        "Design"
+      ],
+      "csvRows": [
+        65
+      ],
+      "listPosition": 14,
+      "status": "pending"
+    },
+    {
+      "id": "a project guide to ux design",
+      "title": "A Project Guide to UX Design",
+      "author": "Russ Unger & Carolyn Chandler",
+      "year": 2012,
+      "discipline": "Design",
+      "level": "Junior",
+      "allDisciplines": [
+        "Design"
+      ],
+      "csvRows": [
+        66
+      ],
+      "listPosition": 15,
+      "status": "pending"
+    },
+    {
+      "id": "designing interfaces",
+      "title": "Designing Interfaces",
+      "author": "Jenifer Tidwell",
+      "year": 2020,
+      "discipline": "Design",
+      "level": "Junior",
+      "allDisciplines": [
+        "Design"
+      ],
+      "csvRows": [
+        67
+      ],
+      "listPosition": 16,
+      "status": "pending"
+    },
+    {
+      "id": "smashing ux design",
+      "title": "Smashing UX Design",
+      "author": "Jesmond Allen & James Chudley",
+      "year": 2012,
+      "discipline": "Design",
+      "level": "Junior",
+      "allDisciplines": [
+        "Design"
+      ],
+      "csvRows": [
+        68
+      ],
+      "listPosition": 17,
+      "status": "pending"
+    },
+    {
+      "id": "about face",
+      "title": "About Face: The Essentials of Interaction Design",
+      "author": "Alan Cooper et al.",
+      "year": 2014,
+      "discipline": "Design",
+      "level": "Mid-Level",
+      "allDisciplines": [
+        "Design"
+      ],
+      "csvRows": [
+        69
+      ],
+      "listPosition": 18,
+      "status": "pending"
+    },
+    {
+      "id": "information architecture for the web and beyond",
+      "title": "Information Architecture for the Web and Beyond",
+      "author": "Rosenfeld, Morville & Arango",
+      "year": 2015,
+      "discipline": "Design",
+      "level": "Mid-Level",
+      "allDisciplines": [
+        "Design"
+      ],
+      "csvRows": [
+        71
+      ],
+      "listPosition": 20,
+      "status": "pending"
+    },
+    {
+      "id": "just enough research",
+      "title": "Just Enough Research",
+      "author": "Erika Hall",
+      "year": 2019,
+      "discipline": "Design",
+      "level": "Mid-Level",
+      "allDisciplines": [
+        "Design"
+      ],
+      "csvRows": [
+        72
+      ],
+      "listPosition": 21,
+      "status": "pending"
+    },
+    {
+      "id": "observing the user experience",
+      "title": "Observing the User Experience",
+      "author": "Kuniavsky, Goodman & Moed",
+      "year": 2012,
+      "discipline": "Design",
+      "level": "Mid-Level",
+      "allDisciplines": [
+        "Design"
+      ],
+      "csvRows": [
+        73
+      ],
+      "listPosition": 22,
+      "status": "pending"
+    },
+    {
+      "id": "interviewing users",
+      "title": "Interviewing Users",
+      "author": "Steve Portigal",
+      "year": 2013,
+      "discipline": "Design",
+      "level": "Mid-Level",
+      "allDisciplines": [
+        "Design"
+      ],
+      "csvRows": [
+        76
+      ],
+      "listPosition": 25,
+      "status": "pending"
+    },
+    {
+      "id": "seductive interaction design",
+      "title": "Seductive Interaction Design",
+      "author": "Stephen Anderson",
+      "year": 2011,
+      "discipline": "Design",
+      "level": "Mid-Level",
+      "allDisciplines": [
+        "Design"
+      ],
+      "csvRows": [
+        77
+      ],
+      "listPosition": 26,
+      "status": "pending"
+    },
+    {
+      "id": "the inmates are running the asylum",
+      "title": "The Inmates Are Running the Asylum",
+      "author": "Alan Cooper",
+      "year": 1999,
+      "discipline": "Design",
+      "level": "Mid-Level",
+      "allDisciplines": [
+        "Design"
+      ],
+      "csvRows": [
+        78
+      ],
+      "listPosition": 27,
+      "status": "pending"
+    },
+    {
+      "id": "mental models",
+      "title": "Mental Models",
+      "author": "Indi Young",
+      "year": 2008,
+      "discipline": "Design",
+      "level": "Mid-Level",
+      "allDisciplines": [
+        "Design"
+      ],
+      "csvRows": [
+        79
+      ],
+      "listPosition": 28,
+      "status": "pending"
+    },
+    {
+      "id": "designing for the digital age",
+      "title": "Designing for the Digital Age",
+      "author": "Kim Goodwin",
+      "year": 2009,
+      "discipline": "Design",
+      "level": "Mid-Level",
+      "allDisciplines": [
+        "Design"
+      ],
+      "csvRows": [
+        80
+      ],
+      "listPosition": 29,
+      "status": "pending"
+    },
+    {
+      "id": "ux strategy",
+      "title": "UX Strategy",
+      "author": "Jaime Levy",
+      "year": 2024,
+      "discipline": "Design",
+      "level": "Mid-Level",
+      "allDisciplines": [
+        "Design"
+      ],
+      "csvRows": [
+        81
+      ],
+      "listPosition": 30,
+      "status": "deferred"
+    },
+    {
+      "id": "quantifying the user experience",
+      "title": "Quantifying the User Experience",
+      "author": "Jeff Sauro & James Lewis",
+      "year": 2016,
+      "discipline": "Design",
+      "level": "Mid-Level",
+      "allDisciplines": [
+        "Design"
+      ],
+      "csvRows": [
+        82
+      ],
+      "listPosition": 31,
+      "status": "pending"
+    },
+    {
+      "id": "measuring the user experience",
+      "title": "Measuring the User Experience",
+      "author": "Tom Tullis & Bill Albert",
+      "year": 2013,
+      "discipline": "Design",
+      "level": "Mid-Level",
+      "allDisciplines": [
+        "Design"
+      ],
+      "csvRows": [
+        83
+      ],
+      "listPosition": 32,
+      "status": "pending"
+    },
+    {
+      "id": "sketching user experiences",
+      "title": "Sketching User Experiences",
+      "author": "Bill Buxton",
+      "year": 2007,
+      "discipline": "Design",
+      "level": "Mid-Level",
+      "allDisciplines": [
+        "Design"
+      ],
+      "csvRows": [
+        84
+      ],
+      "listPosition": 33,
+      "status": "pending"
+    },
+    {
+      "id": "think like a ux researcher",
+      "title": "Think Like a UX Researcher",
+      "author": "David Travis & Philip Hodgson",
+      "year": 2019,
+      "discipline": "Design",
+      "level": "Mid-Level",
+      "allDisciplines": [
+        "Design"
+      ],
+      "csvRows": [
+        85
+      ],
+      "listPosition": 34,
+      "status": "pending"
+    },
+    {
+      "id": "articulating design decisions",
+      "title": "Articulating Design Decisions",
+      "author": "Tom Greever",
+      "year": 2020,
+      "discipline": "Design",
+      "level": "Senior",
+      "allDisciplines": [
+        "Design"
+      ],
+      "csvRows": [
+        86
+      ],
+      "listPosition": 35,
+      "status": "pending"
+    },
+    {
+      "id": "org design for design orgs",
+      "title": "Org Design for Design Orgs",
+      "author": "Peter Merholz & Kristin Skinner",
+      "year": 2016,
+      "discipline": "Design",
+      "level": "Senior",
+      "allDisciplines": [
+        "Design"
+      ],
+      "csvRows": [
+        87
+      ],
+      "listPosition": 36,
+      "status": "pending"
+    },
+    {
+      "id": "creativity inc",
+      "title": "Creativity, Inc.",
+      "author": "Ed Catmull",
+      "year": 2014,
+      "discipline": "Design",
+      "level": "Senior",
+      "allDisciplines": [
+        "Design"
+      ],
+      "csvRows": [
+        89
+      ],
+      "listPosition": 38,
+      "status": "pending"
+    },
+    {
+      "id": "change by design",
+      "title": "Change by Design",
+      "author": "Tim Brown",
+      "year": 2019,
+      "discipline": "Design",
+      "level": "Senior",
+      "allDisciplines": [
+        "Design"
+      ],
+      "csvRows": [
+        90
+      ],
+      "listPosition": 39,
+      "status": "pending"
+    },
+    {
+      "id": "the field guide to humancentered design",
+      "title": "The Field Guide to Human-Centered Design",
+      "author": "IDEO.org",
+      "year": 2015,
+      "discipline": "Design",
+      "level": "Senior",
+      "allDisciplines": [
+        "Design"
+      ],
+      "csvRows": [
+        91
+      ],
+      "listPosition": 40,
+      "status": "pending"
+    },
+    {
+      "id": "user experience management",
+      "title": "User Experience Management",
+      "author": "Arnie Lund",
+      "year": 2011,
+      "discipline": "Design",
+      "level": "Senior",
+      "allDisciplines": [
+        "Design"
+      ],
+      "csvRows": [
+        92
+      ],
+      "listPosition": 41,
+      "status": "pending"
+    },
+    {
+      "id": "this is service design thinking",
+      "title": "This is Service Design Thinking",
+      "author": "Marc Stickdorn & Jakob Schneider",
+      "year": 2011,
+      "discipline": "Design",
+      "level": "Senior",
+      "allDisciplines": [
+        "Design"
+      ],
+      "csvRows": [
+        93
+      ],
+      "listPosition": 42,
+      "status": "pending"
+    },
+    {
+      "id": "design leadership",
+      "title": "Design Leadership",
+      "author": "Richard Banfield",
+      "year": 2015,
+      "discipline": "Design",
+      "level": "Senior",
+      "allDisciplines": [
+        "Design"
+      ],
+      "csvRows": [
+        94
+      ],
+      "listPosition": 43,
+      "status": "pending"
+    },
+    {
+      "id": "mapping experiences",
+      "title": "Mapping Experiences",
+      "author": "Jim Kalbach",
+      "year": 2021,
+      "discipline": "Design",
+      "level": "Senior",
+      "allDisciplines": [
+        "Design"
+      ],
+      "csvRows": [
+        95
+      ],
+      "listPosition": 44,
+      "status": "pending"
+    },
+    {
+      "id": "design is a job",
+      "title": "Design Is a Job",
+      "author": "Mike Monteiro",
+      "year": 2012,
+      "discipline": "Design",
+      "level": "Senior",
+      "allDisciplines": [
+        "Design"
+      ],
+      "csvRows": [
+        96
+      ],
+      "listPosition": 45,
+      "status": "pending"
+    },
+    {
+      "id": "ruined by design",
+      "title": "Ruined by Design",
+      "author": "Mike Monteiro",
+      "year": 2019,
+      "discipline": "Design",
+      "level": "Senior",
+      "allDisciplines": [
+        "Design"
+      ],
+      "csvRows": [
+        99
+      ],
+      "listPosition": 48,
+      "status": "pending"
+    },
+    {
+      "id": "design for real life",
+      "title": "Design for Real Life",
+      "author": "Eric Meyer & Sara Wachter-Boettcher",
+      "year": 2016,
+      "discipline": "Design",
+      "level": "Senior",
+      "allDisciplines": [
+        "Design"
+      ],
+      "csvRows": [
+        100
+      ],
+      "listPosition": 49,
+      "status": "pending"
+    },
+    {
+      "id": "clean code",
+      "title": "Clean Code",
+      "author": "Robert C. Martin",
+      "year": 2008,
+      "discipline": "Engineering",
+      "level": "Junior",
+      "allDisciplines": [
+        "Engineering"
+      ],
+      "csvRows": [
+        102
+      ],
+      "listPosition": 1,
+      "status": "pending"
+    },
+    {
+      "id": "the pragmatic programmer",
+      "title": "The Pragmatic Programmer",
+      "author": "Andrew Hunt & David Thomas",
+      "year": 2019,
+      "discipline": "Engineering",
+      "level": "Junior",
+      "allDisciplines": [
+        "Engineering"
+      ],
+      "csvRows": [
+        103
+      ],
+      "listPosition": 2,
+      "status": "pending"
+    },
+    {
+      "id": "code complete",
+      "title": "Code Complete",
+      "author": "Steve McConnell",
+      "year": 2004,
+      "discipline": "Engineering",
+      "level": "Junior",
+      "allDisciplines": [
+        "Engineering"
+      ],
+      "csvRows": [
+        104
+      ],
+      "listPosition": 3,
+      "status": "pending"
+    },
+    {
+      "id": "head first design patterns",
+      "title": "Head First Design Patterns",
+      "author": "Eric Freeman & Elisabeth Robson",
+      "year": 2004,
+      "discipline": "Engineering",
+      "level": "Junior",
+      "allDisciplines": [
+        "Engineering"
+      ],
+      "csvRows": [
+        105
+      ],
+      "listPosition": 4,
+      "status": "pending"
+    },
+    {
+      "id": "cracking the coding interview",
+      "title": "Cracking the Coding Interview",
+      "author": "Gayle Laakmann McDowell",
+      "year": 2015,
+      "discipline": "Engineering",
+      "level": "Junior",
+      "allDisciplines": [
+        "Engineering"
+      ],
+      "csvRows": [
+        106
+      ],
+      "listPosition": 5,
+      "status": "pending"
+    },
+    {
+      "id": "grokking algorithms",
+      "title": "Grokking Algorithms",
+      "author": "Aditya Bhargava",
+      "year": 2016,
+      "discipline": "Engineering",
+      "level": "Junior",
+      "allDisciplines": [
+        "Engineering"
+      ],
+      "csvRows": [
+        107
+      ],
+      "listPosition": 6,
+      "status": "pending"
+    },
+    {
+      "id": "the clean coder",
+      "title": "The Clean Coder",
+      "author": "Robert C. Martin",
+      "year": 2011,
+      "discipline": "Engineering",
+      "level": "Junior",
+      "allDisciplines": [
+        "Engineering"
+      ],
+      "csvRows": [
+        108
+      ],
+      "listPosition": 7,
+      "status": "pending"
+    },
+    {
+      "id": "code",
+      "title": "Code: The Hidden Language",
+      "author": "Charles Petzold",
+      "year": 1999,
+      "discipline": "Engineering",
+      "level": "Junior",
+      "allDisciplines": [
+        "Engineering"
+      ],
+      "csvRows": [
+        109
+      ],
+      "listPosition": 8,
+      "status": "pending"
+    },
+    {
+      "id": "the effective engineer",
+      "title": "The Effective Engineer",
+      "author": "Edmond Lau",
+      "year": 2015,
+      "discipline": "Engineering",
+      "level": "Junior",
+      "allDisciplines": [
+        "Engineering"
+      ],
+      "csvRows": [
+        110
+      ],
+      "listPosition": 9,
+      "status": "pending"
+    },
+    {
+      "id": "structure and interpretation of computer programs",
+      "title": "Structure and Interpretation of Computer Programs",
+      "author": "Abelson & Sussman",
+      "year": 1996,
+      "discipline": "Engineering",
+      "level": "Junior",
+      "allDisciplines": [
+        "Engineering"
+      ],
+      "csvRows": [
+        111
+      ],
+      "listPosition": 10,
+      "status": "pending"
+    },
+    {
+      "id": "a philosophy of software design",
+      "title": "A Philosophy of Software Design",
+      "author": "John Ousterhout",
+      "year": 2018,
+      "discipline": "Engineering",
+      "level": "Junior",
+      "allDisciplines": [
+        "Engineering"
+      ],
+      "csvRows": [
+        112
+      ],
+      "listPosition": 11,
+      "status": "pending"
+    },
+    {
+      "id": "the missing readme",
+      "title": "The Missing README",
+      "author": "Chris Riccomini & Dmitriy Ryaboy",
+      "year": 2021,
+      "discipline": "Engineering",
+      "level": "Junior",
+      "allDisciplines": [
+        "Engineering"
+      ],
+      "csvRows": [
+        113
+      ],
+      "listPosition": 12,
+      "status": "pending"
+    },
+    {
+      "id": "eloquent javascript",
+      "title": "Eloquent JavaScript",
+      "author": "Marijn Haverbeke",
+      "year": 2018,
+      "discipline": "Engineering",
+      "level": "Junior",
+      "allDisciplines": [
+        "Engineering"
+      ],
+      "csvRows": [
+        114
+      ],
+      "listPosition": 13,
+      "status": "pending"
+    },
+    {
+      "id": "introduction to algorithms clrs",
+      "title": "Introduction to Algorithms (CLRS)",
+      "author": "Cormen, Leiserson, Rivest, Stein",
+      "year": 2022,
+      "discipline": "Engineering",
+      "level": "Junior",
+      "allDisciplines": [
+        "Engineering"
+      ],
+      "csvRows": [
+        115
+      ],
+      "listPosition": 14,
+      "status": "deferred"
+    },
+    {
+      "id": "working effectively with legacy code",
+      "title": "Working Effectively with Legacy Code",
+      "author": "Michael Feathers",
+      "year": 2004,
+      "discipline": "Engineering",
+      "level": "Junior",
+      "allDisciplines": [
+        "Engineering"
+      ],
+      "csvRows": [
+        116
+      ],
+      "listPosition": 15,
+      "status": "pending"
+    },
+    {
+      "id": "the art of computer programming",
+      "title": "The Art of Computer Programming",
+      "author": "Donald Knuth",
+      "year": 1973,
+      "discipline": "Engineering",
+      "level": "Junior",
+      "allDisciplines": [
+        "Engineering"
+      ],
+      "csvRows": [
+        117
+      ],
+      "listPosition": 16,
+      "status": "pending"
+    },
+    {
+      "id": "programming pearls",
+      "title": "Programming Pearls",
+      "author": "Jon Bentley",
+      "year": 1999,
+      "discipline": "Engineering",
+      "level": "Junior",
+      "allDisciplines": [
+        "Engineering"
+      ],
+      "csvRows": [
+        118
+      ],
+      "listPosition": 17,
+      "status": "pending"
+    },
+    {
+      "id": "design patterns",
+      "title": "Design Patterns: Elements of Reusable Object-Oriented Software",
+      "author": "Gang of Four",
+      "year": 1994,
+      "discipline": "Engineering",
+      "level": "Mid-Level",
+      "allDisciplines": [
+        "Engineering"
+      ],
+      "csvRows": [
+        119
+      ],
+      "listPosition": 18,
+      "status": "pending"
+    },
+    {
+      "id": "refactoring",
+      "title": "Refactoring: Improving the Design of Existing Code",
+      "author": "Martin Fowler",
+      "year": 2018,
+      "discipline": "Engineering",
+      "level": "Mid-Level",
+      "allDisciplines": [
+        "Engineering"
+      ],
+      "csvRows": [
+        120
+      ],
+      "listPosition": 19,
+      "status": "pending"
+    },
+    {
+      "id": "test driven development",
+      "title": "Test Driven Development: By Example",
+      "author": "Kent Beck",
+      "year": 2002,
+      "discipline": "Engineering",
+      "level": "Mid-Level",
+      "allDisciplines": [
+        "Engineering"
+      ],
+      "csvRows": [
+        121
+      ],
+      "listPosition": 20,
+      "status": "pending"
+    },
+    {
+      "id": "domaindriven design",
+      "title": "Domain-Driven Design",
+      "author": "Eric Evans",
+      "year": 2003,
+      "discipline": "Engineering",
+      "level": "Mid-Level",
+      "allDisciplines": [
+        "Engineering"
+      ],
+      "csvRows": [
+        122
+      ],
+      "listPosition": 21,
+      "status": "pending"
+    },
+    {
+      "id": "clean architecture",
+      "title": "Clean Architecture",
+      "author": "Robert C. Martin",
+      "year": 2017,
+      "discipline": "Engineering",
+      "level": "Mid-Level",
+      "allDisciplines": [
+        "Engineering"
+      ],
+      "csvRows": [
+        123
+      ],
+      "listPosition": 22,
+      "status": "pending"
+    },
+    {
+      "id": "patterns of enterprise application architecture",
+      "title": "Patterns of Enterprise Application Architecture",
+      "author": "Martin Fowler",
+      "year": 2002,
+      "discipline": "Engineering",
+      "level": "Mid-Level",
+      "allDisciplines": [
+        "Engineering"
+      ],
+      "csvRows": [
+        124
+      ],
+      "listPosition": 23,
+      "status": "pending"
+    },
+    {
+      "id": "building microservices",
+      "title": "Building Microservices",
+      "author": "Sam Newman",
+      "year": 2021,
+      "discipline": "Engineering",
+      "level": "Mid-Level",
+      "allDisciplines": [
+        "Engineering"
+      ],
+      "csvRows": [
+        125
+      ],
+      "listPosition": 24,
+      "status": "pending"
+    },
+    {
+      "id": "designing dataintensive applications",
+      "title": "Designing Data-Intensive Applications",
+      "author": "Martin Kleppmann",
+      "year": 2017,
+      "discipline": "Engineering",
+      "level": "Mid-Level",
+      "allDisciplines": [
+        "Engineering"
+      ],
+      "csvRows": [
+        126
+      ],
+      "listPosition": 25,
+      "status": "pending"
+    },
+    {
+      "id": "release it",
+      "title": "Release It!",
+      "author": "Michael T. Nygard",
+      "year": 2018,
+      "discipline": "Engineering",
+      "level": "Mid-Level",
+      "allDisciplines": [
+        "Engineering"
+      ],
+      "csvRows": [
+        127
+      ],
+      "listPosition": 26,
+      "status": "pending"
+    },
+    {
+      "id": "fundamentals of software architecture",
+      "title": "Fundamentals of Software Architecture",
+      "author": "Mark Richards & Neal Ford",
+      "year": 2020,
+      "discipline": "Engineering",
+      "level": "Mid-Level",
+      "allDisciplines": [
+        "Engineering"
+      ],
+      "csvRows": [
+        128
+      ],
+      "listPosition": 27,
+      "status": "pending"
+    },
+    {
+      "id": "the devops handbook",
+      "title": "The DevOps Handbook",
+      "author": "Kim, Humble, Debois & Willis",
+      "year": 2021,
+      "discipline": "Engineering",
+      "level": "Mid-Level",
+      "allDisciplines": [
+        "Engineering"
+      ],
+      "csvRows": [
+        129
+      ],
+      "listPosition": 28,
+      "status": "pending"
+    },
+    {
+      "id": "continuous delivery",
+      "title": "Continuous Delivery",
+      "author": "Jez Humble & David Farley",
+      "year": 2010,
+      "discipline": "Engineering",
+      "level": "Mid-Level",
+      "allDisciplines": [
+        "Engineering"
+      ],
+      "csvRows": [
+        130
+      ],
+      "listPosition": 29,
+      "status": "pending"
+    },
+    {
+      "id": "software architecture",
+      "title": "Software Architecture: The Hard Parts",
+      "author": "Ford, Richards, Sadalage & Dehghani",
+      "year": 2021,
+      "discipline": "Engineering",
+      "level": "Mid-Level",
+      "allDisciplines": [
+        "Engineering"
+      ],
+      "csvRows": [
+        132
+      ],
+      "listPosition": 31,
+      "status": "pending"
+    },
+    {
+      "id": "peopleware",
+      "title": "Peopleware",
+      "author": "Tom DeMarco & Timothy Lister",
+      "year": 2013,
+      "discipline": "Engineering",
+      "level": "Mid-Level",
+      "allDisciplines": [
+        "Engineering"
+      ],
+      "csvRows": [
+        133
+      ],
+      "listPosition": 32,
+      "status": "pending"
+    },
+    {
+      "id": "the phoenix project",
+      "title": "The Phoenix Project",
+      "author": "Gene Kim, Kevin Behr & George Spafford",
+      "year": 2013,
+      "discipline": "Engineering",
+      "level": "Mid-Level",
+      "allDisciplines": [
+        "Engineering"
+      ],
+      "csvRows": [
+        134
+      ],
+      "listPosition": 33,
+      "status": "pending"
+    },
+    {
+      "id": "learning domaindriven design",
+      "title": "Learning Domain-Driven Design",
+      "author": "Vlad Khononov",
+      "year": 2021,
+      "discipline": "Engineering",
+      "level": "Mid-Level",
+      "allDisciplines": [
+        "Engineering"
+      ],
+      "csvRows": [
+        135
+      ],
+      "listPosition": 34,
+      "status": "pending"
+    },
+    {
+      "id": "site reliability engineering",
+      "title": "Site Reliability Engineering",
+      "author": "Beyer, Jones, Petoff & Murphy",
+      "year": 2016,
+      "discipline": "Engineering",
+      "level": "Mid-Level",
+      "allDisciplines": [
+        "Engineering"
+      ],
+      "csvRows": [
+        136
+      ],
+      "listPosition": 35,
+      "status": "pending"
+    },
+    {
+      "id": "the manager's path",
+      "title": "The Manager's Path",
+      "author": "Camille Fournier",
+      "year": 2017,
+      "discipline": "Engineering",
+      "level": "Senior",
+      "allDisciplines": [
+        "Engineering"
+      ],
+      "csvRows": [
+        137
+      ],
+      "listPosition": 36,
+      "status": "pending"
+    },
+    {
+      "id": "an elegant puzzle",
+      "title": "An Elegant Puzzle",
+      "author": "Will Larson",
+      "year": 2019,
+      "discipline": "Engineering",
+      "level": "Senior",
+      "allDisciplines": [
+        "Engineering"
+      ],
+      "csvRows": [
+        138
+      ],
+      "listPosition": 37,
+      "status": "pending"
+    },
+    {
+      "id": "staff engineer",
+      "title": "Staff Engineer: Leadership Beyond the Management Track",
+      "author": "Will Larson",
+      "year": 2021,
+      "discipline": "Engineering",
+      "level": "Senior",
+      "allDisciplines": [
+        "Engineering"
+      ],
+      "csvRows": [
+        140
+      ],
+      "listPosition": 39,
+      "status": "pending"
+    },
+    {
+      "id": "the staff engineer's path",
+      "title": "The Staff Engineer's Path",
+      "author": "Tanya Reilly",
+      "year": 2022,
+      "discipline": "Engineering",
+      "level": "Senior",
+      "allDisciplines": [
+        "Engineering"
+      ],
+      "csvRows": [
+        141
+      ],
+      "listPosition": 40,
+      "status": "deferred"
+    },
+    {
+      "id": "team topologies",
+      "title": "Team Topologies",
+      "author": "Matthew Skelton & Manuel Pais",
+      "year": 2019,
+      "discipline": "Engineering",
+      "level": "Senior",
+      "allDisciplines": [
+        "Engineering"
+      ],
+      "csvRows": [
+        143
+      ],
+      "listPosition": 42,
+      "status": "pending"
+    },
+    {
+      "id": "accelerate",
+      "title": "Accelerate",
+      "author": "Nicole Forsgren, Jez Humble & Gene Kim",
+      "year": 2018,
+      "discipline": "Engineering",
+      "level": "Senior",
+      "allDisciplines": [
+        "Engineering"
+      ],
+      "csvRows": [
+        144
+      ],
+      "listPosition": 43,
+      "status": "pending"
+    },
+    {
+      "id": "software engineering at google",
+      "title": "Software Engineering at Google",
+      "author": "Winters, Manshreck & Wright",
+      "year": 2020,
+      "discipline": "Engineering",
+      "level": "Senior",
+      "allDisciplines": [
+        "Engineering"
+      ],
+      "csvRows": [
+        146
+      ],
+      "listPosition": 45,
+      "status": "pending"
+    },
+    {
+      "id": "turn the ship around",
+      "title": "Turn the Ship Around!",
+      "author": "L. David Marquet",
+      "year": 2012,
+      "discipline": "Engineering",
+      "level": "Senior",
+      "allDisciplines": [
+        "Engineering"
+      ],
+      "csvRows": [
+        148
+      ],
+      "listPosition": 47,
+      "status": "pending"
+    },
+    {
+      "id": "the five dysfunctions of a team",
+      "title": "The Five Dysfunctions of a Team",
+      "author": "Patrick Lencioni",
+      "year": 2002,
+      "discipline": "Engineering",
+      "level": "Senior",
+      "allDisciplines": [
+        "Engineering"
+      ],
+      "csvRows": [
+        149
+      ],
+      "listPosition": 48,
+      "status": "pending"
+    },
+    {
+      "id": "the software architect elevator",
+      "title": "The Software Architect Elevator",
+      "author": "Gregor Hohpe",
+      "year": 2020,
+      "discipline": "Engineering",
+      "level": "Senior",
+      "allDisciplines": [
+        "Engineering"
+      ],
+      "csvRows": [
+        151
+      ],
+      "listPosition": 50,
+      "status": "pending"
+    },
+    {
+      "id": "managing humans",
+      "title": "Managing Humans",
+      "author": "Michael Lopp (Rands)",
+      "year": 2022,
+      "discipline": "Engineering",
+      "level": "Senior",
+      "allDisciplines": [
+        "Engineering"
+      ],
+      "csvRows": [
+        152
+      ],
+      "listPosition": 51,
+      "status": "deferred"
+    }
+  ],
+  "deferred": [
+    {
+      "id": "ux strategy",
+      "title": "UX Strategy",
+      "author": "Jaime Levy",
+      "year": 2024,
+      "deferUntilYear": 2029,
+      "reason": "publicationYear 2024 > 2021 (schema max). Will become eligible in 2029."
+    },
+    {
+      "id": "introduction to algorithms clrs",
+      "title": "Introduction to Algorithms (CLRS)",
+      "author": "Cormen, Leiserson, Rivest, Stein",
+      "year": 2022,
+      "deferUntilYear": 2027,
+      "reason": "publicationYear 2022 > 2021 (schema max). Will become eligible in 2027."
+    },
+    {
+      "id": "the staff engineer's path",
+      "title": "The Staff Engineer's Path",
+      "author": "Tanya Reilly",
+      "year": 2022,
+      "deferUntilYear": 2027,
+      "reason": "publicationYear 2022 > 2021 (schema max). Will become eligible in 2027."
+    },
+    {
+      "id": "managing humans",
+      "title": "Managing Humans",
+      "author": "Michael Lopp (Rands)",
+      "year": 2022,
+      "deferUntilYear": 2027,
+      "reason": "publicationYear 2022 > 2021 (schema max). Will become eligible in 2027."
+    }
+  ]
+}
