@@ -14,7 +14,7 @@ keyTakeaways:
   - "Every conversation should include at least one question terrifying enough to potentially destroy your current hypothesis"
 whoShouldRead: "Junior product builders (0-3 years) who are conducting their first customer interviews, and anyone who has ever left a user conversation feeling validated but without actionable insight."
 affiliateLink: "https://www.amazon.com/Mom-Test-customers-business-everyone/dp/1492180742"
-draft: true
+draft: false
 ---
 
 Most of us have been there. You describe your latest product idea to someone — a colleague, a mentor, your actual mother — and they nod enthusiastically. "That sounds great!" they say. You walk away feeling validated. And then you build the thing, and nobody uses it.
