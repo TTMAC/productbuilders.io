@@ -1,28 +1,30 @@
 ---
 import BaseLayout from '@layouts/BaseLayout.astro';
-import DisciplineFilter from '@components/DisciplineFilter.astro';
-import LevelFilter from '@components/LevelFilter.astro';
 import BookGrid from '@components/BookGrid.astro';
 import { getCollection } from 'astro:content';
-import { filterDrafts, filterByDiscipline, filterByLevel } from '@/utils/content';
+import { filterDrafts } from '@/utils/content';
 
-// Get filter params
-const discipline = Astro.url.searchParams.get('discipline') || undefined;
-const level = Astro.url.searchParams.get('level') || undefined;
-
-// Fetch, filter, and sort books
+// Fetch all published books, sorted by rating desc then title asc
 const allBooks = await getCollection('books');
 const publishedBooks = filterDrafts(allBooks);
-const filteredByDiscipline = filterByDiscipline(publishedBooks, discipline);
-const filteredBooks = filterByLevel(filteredByDiscipline, level);
-
-// Sort by rating descending, then title alphabetically as tiebreaker
-const sortedBooks = [...filteredBooks].sort((a, b) => {
+const sortedBooks = [...publishedBooks].sort((a, b) => {
   if (b.data.rating !== a.data.rating) return b.data.rating - a.data.rating;
   return a.data.title.localeCompare(b.data.title);
 });
 
-const hasActiveFilters = discipline || level;
+const disciplines = [
+  { value: '', label: 'All Disciplines' },
+  { value: 'PM', label: 'Product Management' },
+  { value: 'Design', label: 'Design' },
+  { value: 'Engineering', label: 'Engineering' },
+];
+
+const levels = [
+  { value: '', label: 'All Levels' },
+  { value: 'Junior', label: 'Junior' },
+  { value: 'Mid-Level', label: 'Mid-Level' },
+  { value: 'Senior', label: 'Senior' },
+];
 ---
 
 <BaseLayout
@@ -36,32 +38,121 @@ const hasActiveFilters = discipline || level;
     </p>
 
     <!-- Discipline filter -->
-    <DisciplineFilter
-      currentDiscipline={discipline}
-      basePath="/books"
-      preserveParams={level ? { level } : {}}
-    />
+    <div class="flex flex-wrap gap-2 mb-8" id="discipline-filter">
+      {disciplines.map((d) => (
+        <a
+          href={d.value ? `/books?discipline=${d.value}` : '/books'}
+          class="filter-btn px-4 py-2 rounded-lg font-medium transition-colors bg-gray-200 text-gray-700 hover:bg-gray-300"
+          data-filter-type="discipline"
+          data-filter-value={d.value}
+        >
+          {d.label}
+        </a>
+      ))}
+    </div>
 
     <!-- Level filter -->
-    <LevelFilter currentLevel={level} basePath="/books" />
+    <div class="flex flex-wrap gap-2 mb-8" id="level-filter">
+      {levels.map((l) => (
+        <a
+          href={l.value ? `/books?level=${l.value}` : '/books'}
+          class="filter-btn px-4 py-2 rounded-lg font-medium transition-colors bg-gray-200 text-gray-700 hover:bg-gray-300"
+          data-filter-type="level"
+          data-filter-value={l.value}
+        >
+          {l.label}
+        </a>
+      ))}
+    </div>
 
     <!-- Book count -->
-    <p class="text-sm text-gray-500 mb-6">
+    <p class="text-sm text-gray-500 mb-6" id="book-count">
       {sortedBooks.length} book review{sortedBooks.length !== 1 ? 's' : ''}
     </p>
 
     <!-- Books grid -->
     <BookGrid books={sortedBooks} />
 
-    <!-- Empty state with reset -->
-    {
-      sortedBooks.length === 0 && hasActiveFilters && (
-        <div class="text-center py-4">
-          <a href="/books" class="text-blue-600 hover:text-blue-800 font-medium">
-            Reset all filters
-          </a>
-        </div>
-      )
-    }
+    <!-- Empty state with reset (hidden by default, shown by JS) -->
+    <div class="text-center py-12 hidden" id="empty-state">
+      <p class="text-gray-500 mb-4">No book reviews match your filters.</p>
+      <a href="/books" class="text-blue-600 hover:text-blue-800 font-medium">
+        Reset all filters
+      </a>
+    </div>
   </div>
 </BaseLayout>
+
+<script is:inline>
+  (function () {
+    var params = new URLSearchParams(window.location.search);
+    var discipline = params.get('discipline') || '';
+    var level = params.get('level') || '';
+
+    // Update filter button active states and hrefs
+    var disciplineBtns = document.querySelectorAll('#discipline-filter .filter-btn');
+    var levelBtns = document.querySelectorAll('#level-filter .filter-btn');
+
+    disciplineBtns.forEach(function (btn) {
+      var val = btn.getAttribute('data-filter-value');
+      // Build href preserving level param
+      var p = new URLSearchParams();
+      if (val) p.set('discipline', val);
+      if (level) p.set('level', level);
+      btn.setAttribute('href', p.toString() ? '/books?' + p.toString() : '/books');
+
+      if (val === discipline) {
+        btn.className = 'filter-btn px-4 py-2 rounded-lg font-medium transition-colors bg-blue-600 text-white';
+      } else {
+        btn.className = 'filter-btn px-4 py-2 rounded-lg font-medium transition-colors bg-gray-200 text-gray-700 hover:bg-gray-300';
+      }
+    });
+
+    levelBtns.forEach(function (btn) {
+      var val = btn.getAttribute('data-filter-value');
+      // Build href preserving discipline param
+      var p = new URLSearchParams();
+      if (discipline) p.set('discipline', discipline);
+      if (val) p.set('level', val);
+      btn.setAttribute('href', p.toString() ? '/books?' + p.toString() : '/books');
+
+      if (val === level) {
+        btn.className = 'filter-btn px-4 py-2 rounded-lg font-medium transition-colors bg-gray-800 text-white';
+      } else {
+        btn.className = 'filter-btn px-4 py-2 rounded-lg font-medium transition-colors bg-gray-200 text-gray-700 hover:bg-gray-300';
+      }
+    });
+
+    // Filter cards
+    var cards = document.querySelectorAll('.book-card');
+    var visibleCount = 0;
+
+    cards.forEach(function (card) {
+      var cardDiscipline = card.getAttribute('data-discipline');
+      var cardLevel = card.getAttribute('data-level');
+      var matchDiscipline = !discipline || cardDiscipline === discipline;
+      var matchLevel = !level || cardLevel === level;
+
+      if (matchDiscipline && matchLevel) {
+        card.style.display = '';
+        visibleCount++;
+      } else {
+        card.style.display = 'none';
+      }
+    });
+
+    // Update count
+    var countEl = document.getElementById('book-count');
+    if (countEl) {
+      countEl.textContent = visibleCount + ' book review' + (visibleCount !== 1 ? 's' : '');
+    }
+
+    // Show/hide empty state
+    var emptyState = document.getElementById('empty-state');
+    var gridEl = document.querySelector('.grid');
+    if (visibleCount === 0 && (discipline || level)) {
+      if (emptyState) emptyState.classList.remove('hidden');
+      if (gridEl) gridEl.classList.add('hidden');
+    }
+  })();
+</script>

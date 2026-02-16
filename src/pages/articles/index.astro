@@ -1,19 +1,21 @@
 ---
 import BaseLayout from '@layouts/BaseLayout.astro';
 import ArticleCard from '@components/ArticleCard.astro';
-import DisciplineFilter from '@components/DisciplineFilter.astro';
 import { getCollection } from 'astro:content';
-import { filterDrafts, filterByDiscipline } from '@/utils/content';
+import { filterDrafts } from '@/utils/content';
 import { sortByDate } from '@/utils/date';
 
-// Get discipline from query params
-const discipline = Astro.url.searchParams.get('discipline') || undefined;
-
-// Fetch and filter articles
+// Fetch all published articles, sorted by date
 const allArticles = await getCollection('articles');
 const publishedArticles = filterDrafts(allArticles);
-const filteredArticles = filterByDiscipline(publishedArticles, discipline);
-const sortedArticles = sortByDate(filteredArticles);
+const sortedArticles = sortByDate(publishedArticles);
+
+const disciplines = [
+  { value: '', label: 'All Disciplines' },
+  { value: 'PM', label: 'Product Management' },
+  { value: 'Design', label: 'Design' },
+  { value: 'Engineering', label: 'Engineering' },
+];
 ---
 
 <BaseLayout
@@ -27,39 +29,88 @@ const sortedArticles = sortByDate(filteredArticles);
     </p>
 
     <!-- Discipline filter -->
-    <DisciplineFilter currentDiscipline={discipline} />
+    <div class="flex flex-wrap gap-2 mb-8" id="discipline-filter">
+      {disciplines.map((d) => (
+        <a
+          href={d.value ? `/articles?discipline=${d.value}` : '/articles'}
+          class="filter-btn px-4 py-2 rounded-lg font-medium transition-colors bg-gray-200 text-gray-700 hover:bg-gray-300"
+          data-filter-type="discipline"
+          data-filter-value={d.value}
+        >
+          {d.label}
+        </a>
+      ))}
+    </div>
 
     <!-- Articles grid -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
       {sortedArticles.map((article) => <ArticleCard article={article} />)}
     </div>
 
-    <!-- Empty state -->
-    {
-      sortedArticles.length === 0 && (
-        <div class="text-center py-16">
-          <svg
-            class="w-16 h-16 text-gray-400 mx-auto mb-4"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-            />
-          </svg>
-          <h3 class="text-xl font-semibold text-gray-700 mb-2">No articles found</h3>
-          <p class="text-gray-500 mb-4">
-            Try selecting a different discipline or check back soon for new content.
-          </p>
-          <a href="/articles" class="text-blue-600 hover:text-blue-800 font-medium">
-            View all articles
-          </a>
-        </div>
-      )
-    }
+    <!-- Empty state (hidden by default, shown by JS) -->
+    <div class="text-center py-16 hidden" id="empty-state">
+      <svg
+        class="w-16 h-16 text-gray-400 mx-auto mb-4"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+        />
+      </svg>
+      <h3 class="text-xl font-semibold text-gray-700 mb-2">No articles found</h3>
+      <p class="text-gray-500 mb-4">
+        Try selecting a different discipline or check back soon for new content.
+      </p>
+      <a href="/articles" class="text-blue-600 hover:text-blue-800 font-medium">
+        View all articles
+      </a>
+    </div>
   </div>
 </BaseLayout>
+
+<script is:inline>
+  (function () {
+    var params = new URLSearchParams(window.location.search);
+    var discipline = params.get('discipline') || '';
+
+    // Update filter button active states
+    var btns = document.querySelectorAll('#discipline-filter .filter-btn');
+    btns.forEach(function (btn) {
+      var val = btn.getAttribute('data-filter-value');
+      if (val === discipline) {
+        btn.className = 'filter-btn px-4 py-2 rounded-lg font-medium transition-colors bg-blue-600 text-white';
+      } else {
+        btn.className = 'filter-btn px-4 py-2 rounded-lg font-medium transition-colors bg-gray-200 text-gray-700 hover:bg-gray-300';
+      }
+    });
+
+    // Filter cards
+    if (discipline) {
+      var cards = document.querySelectorAll('.article-card');
+      var visibleCount = 0;
+
+      cards.forEach(function (card) {
+        var cardDisciplines = (card.getAttribute('data-disciplines') || '').split(',');
+        if (cardDisciplines.indexOf(discipline) !== -1) {
+          card.style.display = '';
+          visibleCount++;
+        } else {
+          card.style.display = 'none';
+        }
+      });
+
+      // Show empty state if no matches
+      if (visibleCount === 0) {
+        var emptyState = document.getElementById('empty-state');
+        var gridEl = document.querySelector('.grid');
+        if (emptyState) emptyState.classList.remove('hidden');
+        if (gridEl) gridEl.classList.add('hidden');
+      }
+    }
+  })();
+</script>

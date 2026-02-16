@@ -58,14 +58,28 @@ test.describe('Navigation', () => {
     await expect(page.locator('a:text("All Disciplines")')).toBeVisible();
     await expect(page.locator('a:text("Product Management")')).toBeVisible();
 
+    // "All Disciplines" should be active by default
+    const allBtn = page.locator('.filter-btn[data-filter-value=""]');
+    await expect(allBtn).toHaveClass(/bg-blue-600/);
+
     // Filter by PM discipline
     await page.locator('a[href="/articles?discipline=PM"]').click();
     await expect(page).toHaveURL(/discipline=PM/);
 
-    // Cards should still be visible (PM articles exist)
-    const cards = page.locator('.grid a[href^="/articles/"]');
-    const count = await cards.count();
+    // PM button should now be active
+    const pmBtn = page.locator('.filter-btn[data-filter-value="PM"]');
+    await expect(pmBtn).toHaveClass(/bg-blue-600/);
+
+    // Visible cards should only be PM articles
+    const visibleCards = page.locator('.article-card:visible');
+    const count = await visibleCards.count();
     expect(count).toBeGreaterThan(0);
+
+    // All visible cards should have PM in their disciplines
+    for (let i = 0; i < count; i++) {
+      const disciplines = await visibleCards.nth(i).getAttribute('data-disciplines');
+      expect(disciplines).toContain('PM');
+    }
   });
 
   test('clicking an article card navigates to article page', async ({ page }) => {
