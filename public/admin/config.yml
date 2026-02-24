@@ -23,6 +23,7 @@ collections:
     folder: "src/content/articles"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    summary: "{{title}} | {{publishDate | date('YYYY-MM-DD')}} | Draft: {{draft}}"
     fields:
       - { label: "Title", name: "title", widget: "string", hint: "Max 60 chars for SEO", pattern: ['^.{1,60}$', "Must be 60 characters or less"] }
       - { label: "Description", name: "description", widget: "text", hint: "Max 155 chars for SEO", pattern: ['^.{1,155}$', "Must be 155 characters or less"] }
@@ -52,6 +53,7 @@ collections:
     folder: "src/content/books"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    summary: "{{title}} by {{bookAuthor}} | Draft: {{draft}}"
     fields:
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Book Author", name: "bookAuthor", widget: "string" }
