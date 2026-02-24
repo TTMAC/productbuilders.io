@@ -1,6 +1,6 @@
-# Domain Model — ProductBuilders.io
+# Domain Model — ProductBuilders.tech
 
-> **Purpose:** Define the domain-driven design structure for ProductBuilders.io, including bounded contexts, aggregates, entities, value objects, and domain events. This document serves as the authoritative reference for domain language and boundaries.
+> **Purpose:** Define the domain-driven design structure for ProductBuilders.tech, including bounded contexts, aggregates, entities, value objects, and domain events. This document serves as the authoritative reference for domain language and boundaries.
 
 ---
 
@@ -12,7 +12,7 @@
 Product builders (designers, engineers, and product managers) struggle to develop holistic product thinking skills because existing knowledge resources are siloed by discipline. This results in cross-functional friction, longer alignment cycles, and products that fail to balance technical feasibility, user desirability, and business viability. 78% of product knowledge content remains single-discipline focused (MRD §1.1).
 
 **Solution Space:**
-ProductBuilders.io delivers integrated cross-functional perspectives through a blog, newsletter, and curated book review library. Every content piece surfaces how design, engineering, and product decisions interconnect, enabling product builders to develop shared vocabulary and mutual understanding. The platform is built as a Jamstack static site with Git-based content, external newsletter management, and privacy-focused analytics.
+ProductBuilders.tech delivers integrated cross-functional perspectives through a blog, newsletter, and curated book review library. Every content piece surfaces how design, engineering, and product decisions interconnect, enabling product builders to develop shared vocabulary and mutual understanding. The platform is built as a Jamstack static site with Git-based content, external newsletter management, and privacy-focused analytics.
 
 **Domain Complexity Level:** Simple to Complicated (content publishing with structured taxonomy, no transactional complexity)
 

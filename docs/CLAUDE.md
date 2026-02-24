@@ -1,4 +1,4 @@
-# Project CLAUDE.md — ProductBuilders.io
+# Project CLAUDE.md — ProductBuilders.tech
 
 > **Scope:** Project-specific instructions that supplement the global CLAUDE.md. These instructions take precedence when working in this codebase.
 
@@ -21,7 +21,7 @@
 
 ## Project Context
 
-**Project:** ProductBuilders.io
+**Project:** ProductBuilders.tech
 
 **Description:** A cross-functional content platform (blog + newsletter + book review library) that helps product professionals (PMs, designers, engineers) develop shared vocabulary and mutual understanding across disciplines. Built as a Jamstack static site targeting 25K monthly active readers within 12 months.
 
