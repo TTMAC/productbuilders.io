@@ -49,7 +49,7 @@ collections:
 
   # Books collection - matches bookReviewSchema from src/schemas/content.ts
   - name: "books"
-    label: "Books (Phase 2)"
+    label: "Book Reviews"
     folder: "src/content/books"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
