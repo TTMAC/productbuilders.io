@@ -28,12 +28,16 @@ export function filterByDiscipline<
  * @param includeDrafts - Whether to include drafts (default: false)
  * @returns Filtered array
  */
-export function filterDrafts<T extends { data: { draft?: boolean } }>(
-  items: T[],
-  includeDrafts: boolean = false
-): T[] {
+export function filterDrafts<
+  T extends { data: { draft?: boolean; scheduledDate?: Date } }
+>(items: T[], includeDrafts: boolean = false): T[] {
   if (includeDrafts) return items;
-  return items.filter((item) => !item.data.draft);
+  const now = new Date();
+  return items.filter((item) => {
+    if (item.data.draft) return false;
+    if (item.data.scheduledDate && item.data.scheduledDate > now) return false;
+    return true;
+  });
 }
 
 /**

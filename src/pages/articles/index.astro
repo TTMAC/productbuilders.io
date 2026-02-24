@@ -42,8 +42,13 @@ const disciplines = [
       ))}
     </div>
 
+    <!-- Article count -->
+    <p class="text-sm text-gray-500 mb-6" id="article-count">
+      {sortedArticles.length} article{sortedArticles.length !== 1 ? 's' : ''}
+    </p>
+
     <!-- Articles grid -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="articles-grid">
       {sortedArticles.map((article) => <ArticleCard article={article} />)}
     </div>
 
@@ -78,39 +83,74 @@ const disciplines = [
     var params = new URLSearchParams(window.location.search);
     var discipline = params.get('discipline') || '';
 
-    // Update filter button active states
-    var btns = document.querySelectorAll('#discipline-filter .filter-btn');
-    btns.forEach(function (btn) {
-      var val = btn.getAttribute('data-filter-value');
-      if (val === discipline) {
-        btn.className = 'filter-btn px-4 py-2 rounded-lg font-medium transition-colors bg-blue-600 text-white';
-      } else {
-        btn.className = 'filter-btn px-4 py-2 rounded-lg font-medium transition-colors bg-gray-200 text-gray-700 hover:bg-gray-300';
-      }
-    });
+    function updateUI() {
+      // Update button active states
+      document.querySelectorAll('#discipline-filter .filter-btn').forEach(function (btn) {
+        var val = btn.getAttribute('data-filter-value');
+        if (val === discipline) {
+          btn.className = 'filter-btn px-4 py-2 rounded-lg font-medium transition-colors bg-blue-600 text-white';
+        } else {
+          btn.className = 'filter-btn px-4 py-2 rounded-lg font-medium transition-colors bg-gray-200 text-gray-700 hover:bg-gray-300';
+        }
+      });
 
-    // Filter cards
-    if (discipline) {
+      // Filter cards
       var cards = document.querySelectorAll('.article-card');
       var visibleCount = 0;
 
       cards.forEach(function (card) {
-        var cardDisciplines = (card.getAttribute('data-disciplines') || '').split(',');
-        if (cardDisciplines.indexOf(discipline) !== -1) {
+        if (!discipline) {
           card.style.display = '';
           visibleCount++;
         } else {
-          card.style.display = 'none';
+          var cardDisciplines = (card.getAttribute('data-disciplines') || '').split(',');
+          if (cardDisciplines.indexOf(discipline) !== -1) {
+            card.style.display = '';
+            visibleCount++;
+          } else {
+            card.style.display = 'none';
+          }
         }
       });
 
-      // Show empty state if no matches
-      if (visibleCount === 0) {
-        var emptyState = document.getElementById('empty-state');
-        var gridEl = document.querySelector('.grid');
+      // Update count
+      var countEl = document.getElementById('article-count');
+      if (countEl) {
+        countEl.textContent = visibleCount + ' article' + (visibleCount !== 1 ? 's' : '');
+      }
+
+      // Show/hide empty state
+      var emptyState = document.getElementById('empty-state');
+      var gridEl = document.getElementById('articles-grid');
+      if (visibleCount === 0 && discipline) {
         if (emptyState) emptyState.classList.remove('hidden');
         if (gridEl) gridEl.classList.add('hidden');
+      } else {
+        if (emptyState) emptyState.classList.add('hidden');
+        if (gridEl) gridEl.classList.remove('hidden');
       }
     }
+
+    // Intercept filter clicks for instant client-side filtering
+    document.querySelectorAll('#discipline-filter .filter-btn').forEach(function (btn) {
+      btn.addEventListener('click', function (e) {
+        e.preventDefault();
+        discipline = btn.getAttribute('data-filter-value') || '';
+        var p = new URLSearchParams();
+        if (discipline) p.set('discipline', discipline);
+        history.pushState(null, '', p.toString() ? '/articles?' + p.toString() : '/articles');
+        updateUI();
+      });
+    });
+
+    // Handle browser back/forward
+    window.addEventListener('popstate', function () {
+      var p = new URLSearchParams(window.location.search);
+      discipline = p.get('discipline') || '';
+      updateUI();
+    });
+
+    // Apply initial state from URL
+    updateUI();
   })();
 </script>

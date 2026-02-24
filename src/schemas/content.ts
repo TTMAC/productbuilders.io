@@ -8,6 +8,7 @@ export const articleSchema = z.object({
   author: z.string().default('Tshepo Machele'),
   publishDate: z.coerce.date(),
   updatedDate: z.coerce.date().optional(),
+  scheduledDate: z.coerce.date().optional(),
   disciplines: z
     .array(z.enum(['PM', 'Design', 'Engineering']))
     .min(1, 'Must have ≥1 discipline'),
