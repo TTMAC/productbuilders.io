@@ -117,6 +117,59 @@ describe('filterDrafts', () => {
     const result = filterDrafts([]);
     expect(result).toEqual([]);
   });
+
+  it('should_exclude_items_with_future_scheduledDate', () => {
+    const futureDate = new Date(Date.now() + 86400000); // tomorrow
+    const items = [
+      { data: { draft: false, scheduledDate: futureDate }, slug: 'future' },
+      { data: { draft: false }, slug: 'no-schedule' },
+    ];
+
+    const result = filterDrafts(items);
+    expect(result).toHaveLength(1);
+    expect(result[0].slug).toBe('no-schedule');
+  });
+
+  it('should_include_items_with_past_scheduledDate', () => {
+    const pastDate = new Date(Date.now() - 86400000); // yesterday
+    const items = [
+      { data: { draft: false, scheduledDate: pastDate }, slug: 'past' },
+      { data: { draft: false }, slug: 'no-schedule' },
+    ];
+
+    const result = filterDrafts(items);
+    expect(result).toHaveLength(2);
+  });
+
+  it('should_exclude_draft_even_with_past_scheduledDate', () => {
+    const pastDate = new Date(Date.now() - 86400000); // yesterday
+    const items = [
+      { data: { draft: true, scheduledDate: pastDate }, slug: 'draft-past' },
+    ];
+
+    const result = filterDrafts(items);
+    expect(result).toHaveLength(0);
+  });
+
+  it('should_include_future_scheduled_when_includeDrafts_true', () => {
+    const futureDate = new Date(Date.now() + 86400000); // tomorrow
+    const items = [
+      { data: { draft: false, scheduledDate: futureDate }, slug: 'future' },
+    ];
+
+    const result = filterDrafts(items, true);
+    expect(result).toHaveLength(1);
+  });
+
+  it('should_handle_items_without_scheduledDate_field', () => {
+    const items = [
+      { data: { draft: false }, slug: 'no-field' },
+      { data: { draft: false, scheduledDate: undefined }, slug: 'undefined-field' },
+    ];
+
+    const result = filterDrafts(items);
+    expect(result).toHaveLength(2);
+  });
 });
 
 describe('getFeaturedArticles', () => {

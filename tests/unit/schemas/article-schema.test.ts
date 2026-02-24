@@ -205,6 +205,47 @@ describe('Article Schema', () => {
     expect(result.heroImageAlt).toBe('Hero image description');
   });
 
+  it('should_accept_optional_scheduledDate', () => {
+    const frontmatter = {
+      title: 'Test Article',
+      description: 'Test description',
+      author: 'Tshepo Machele',
+      publishDate: new Date('2026-01-15'),
+      scheduledDate: new Date('2026-03-01'),
+      disciplines: ['PM'],
+    };
+
+    const result = articleSchema.parse(frontmatter);
+    expect(result.scheduledDate).toBeInstanceOf(Date);
+  });
+
+  it('should_accept_article_without_scheduledDate', () => {
+    const frontmatter = {
+      title: 'Test Article',
+      description: 'Test description',
+      author: 'Tshepo Machele',
+      publishDate: new Date('2026-01-15'),
+      disciplines: ['PM'],
+    };
+
+    const result = articleSchema.parse(frontmatter);
+    expect(result.scheduledDate).toBeUndefined();
+  });
+
+  it('should_coerce_string_scheduledDate_to_Date', () => {
+    const frontmatter = {
+      title: 'Test Article',
+      description: 'Test description',
+      author: 'Tshepo Machele',
+      publishDate: new Date('2026-01-15'),
+      scheduledDate: '2026-03-01T10:00:00Z',
+      disciplines: ['PM'],
+    };
+
+    const result = articleSchema.parse(frontmatter);
+    expect(result.scheduledDate).toBeInstanceOf(Date);
+  });
+
   it('should_reject_invalid_discipline_value', () => {
     const frontmatter = {
       title: 'Test Article',
