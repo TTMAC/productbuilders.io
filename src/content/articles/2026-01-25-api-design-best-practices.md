@@ -2,6 +2,7 @@
 title: "API Design Best Practices for Product Teams"
 description: "How product managers and engineers can collaborate on API design that balances developer experience with business needs."
 publishDate: 2026-01-25
+scheduledDate: 2026-01-25
 author: "Tshepo Machele"
 disciplines: ["PM", "Engineering"]
 tags: ["api", "architecture", "developer-experience", "integration"]

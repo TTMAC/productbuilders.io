@@ -2,6 +2,7 @@
 title: "Async Communication for Distributed Product Teams"
 description: "Effective async communication patterns that help remote product teams stay aligned, move fast, and avoid meeting overload."
 publishDate: 2026-03-29
+scheduledDate: 2026-03-29
 author: "Tshepo Machele"
 disciplines: ["PM", "Design", "Engineering"]
 tags: ["async", "remote", "communication", "distributed"]

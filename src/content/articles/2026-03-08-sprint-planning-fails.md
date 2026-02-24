@@ -2,6 +2,7 @@
 title: "The Real Reason Your Sprint Planning Fails"
 description: "Sprint planning breaks down when disciplines are misaligned. Learn how cross-functional collaboration fixes planning and restores team velocity."
 publishDate: 2026-03-08
+scheduledDate: 2026-03-08
 author: "Tshepo Machele"
 disciplines: ["PM", "Design", "Engineering"]
 tags: ["sprint", "agile", "planning", "collaboration"]

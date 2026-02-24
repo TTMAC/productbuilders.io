@@ -2,6 +2,7 @@
 title: "Estimating Like an Engineer: A PM's Perspective"
 description: "Learn how PMs and engineers can align on effort estimation to build more predictable and trustworthy product delivery cycles."
 publishDate: 2026-02-22
+scheduledDate: 2026-02-22
 author: "Tshepo Machele"
 disciplines: ["PM", "Engineering"]
 tags: ["estimation", "planning", "sprint"]

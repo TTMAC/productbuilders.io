@@ -2,6 +2,7 @@
 title: "Building Effective Product Roadmaps"
 description: "A practical guide to creating product roadmaps that align stakeholders and drive execution across PM and Engineering teams."
 publishDate: 2026-01-15
+scheduledDate: 2026-01-15
 author: "Tshepo Machele"
 disciplines: ["PM", "Engineering"]
 tags: ["roadmap", "strategy", "planning", "cross-functional"]

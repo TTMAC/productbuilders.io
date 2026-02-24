@@ -2,6 +2,7 @@
 title: "Design Systems 101: Building Consistency at Scale"
 description: "How design systems help designers and engineers ship faster while maintaining quality and consistency across products."
 publishDate: 2026-01-20
+scheduledDate: 2026-01-20
 author: "Tshepo Machele"
 disciplines: ["Design", "Engineering"]
 tags: ["design-systems", "ui", "components", "consistency"]

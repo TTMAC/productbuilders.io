@@ -41,7 +41,7 @@ export async function GET(context: APIContext) {
   );
 
   return rss({
-    title: 'ProductBuilders.io',
+    title: 'ProductBuilders.tech',
     description: 'Insights for product managers, designers, and engineers building exceptional products',
     site: context.site!,
     items: allItems,

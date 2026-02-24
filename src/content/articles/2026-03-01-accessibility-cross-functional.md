@@ -2,6 +2,7 @@
 title: "Accessibility as a Cross-Functional Responsibility"
 description: "Why building accessible products requires collaboration across design, engineering, and product management, not just compliance checklists."
 publishDate: 2026-03-01
+scheduledDate: 2026-03-01
 author: "Tshepo Machele"
 disciplines: ["Design", "Engineering", "PM"]
 tags: ["accessibility", "a11y", "wcag", "inclusive-design"]

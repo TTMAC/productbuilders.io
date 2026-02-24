@@ -2,6 +2,7 @@
 title: "Technical Debt Explained for Non-Engineers"
 description: "A clear guide to understanding technical debt from PM and Design perspectives, so you can make smarter product decisions with your engineering team."
 publishDate: 2026-02-15
+scheduledDate: 2026-02-15
 author: "Tshepo Machele"
 disciplines: ["PM", "Design"]
 tags: ["technical-debt", "communication", "engineering-concepts"]
