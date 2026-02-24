@@ -2,6 +2,7 @@
 title: "Product Metrics: What Each Function Should Track"
 description: "Discover the essential metrics PMs, designers, and engineers should each focus on to drive product decisions and team alignment."
 publishDate: 2026-03-22
+scheduledDate: 2026-03-22
 author: "Tshepo Machele"
 disciplines: ["PM", "Engineering", "Design"]
 tags: ["metrics", "analytics", "okr", "kpi"]

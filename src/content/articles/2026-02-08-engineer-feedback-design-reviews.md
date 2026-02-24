@@ -2,6 +2,7 @@
 title: "How Engineers Should Give Feedback in Design Reviews"
 description: "A practical guide for engineers on giving constructive, actionable feedback in design reviews that strengthens collaboration with designers."
 publishDate: 2026-02-08
+scheduledDate: 2026-02-08
 author: "Tshepo Machele"
 disciplines: ["Engineering", "Design"]
 tags: ["feedback", "design-review", "communication"]

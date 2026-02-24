@@ -5,7 +5,7 @@ test.describe('Navigation', () => {
     await page.goto('/');
 
     // Hero section
-    await expect(page.locator('section h1')).toContainText('ProductBuilders.io');
+    await expect(page.locator('section h1')).toContainText('ProductBuilders.tech');
     await expect(page.locator('text=Explore Articles')).toBeVisible();
 
     // Recent articles section

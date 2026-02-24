@@ -42,7 +42,7 @@ test.describe('Mobile Experience', () => {
     await page.goto('/');
 
     // Hero title visible
-    await expect(page.locator('h1')).toContainText('ProductBuilders.io');
+    await expect(page.locator('h1')).toContainText('ProductBuilders.tech');
 
     // Article cards visible
     const firstCard = page.locator('a[href^="/articles/2026"]').first();

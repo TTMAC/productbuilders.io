@@ -2,6 +2,7 @@
 title: "Why Product Builders Need Cross-Functional Literacy"
 description: "Cross-functional literacy is the secret weapon of high-performing product teams. Learn why PMs, designers, and engineers must understand each other."
 publishDate: 2026-02-01
+scheduledDate: 2026-02-01
 author: "Tshepo Machele"
 disciplines: ["PM", "Design", "Engineering"]
 tags: ["collaboration", "leadership", "cross-functional"]

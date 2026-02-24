@@ -2,6 +2,7 @@
 title: "How to Propose Features That Engineers Champion"
 description: "Learn how to craft feature proposals that earn engineering buy-in, spark enthusiasm, and lead to stronger product outcomes."
 publishDate: 2026-03-15
+scheduledDate: 2026-03-15
 author: "Tshepo Machele"
 disciplines: ["Design", "PM"]
 tags: ["feature-proposals", "communication", "collaboration"]
