@@ -84,5 +84,18 @@ const siteTitle = `${title} | ProductBuilders.io`;
     </main>
     <Footer />
     <CookieConsent />
+    <!-- Netlify Identity widget — handles invite/recovery tokens on any page -->
+    <script is:inline src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    <script is:inline>
+      if (window.netlifyIdentity) {
+        window.netlifyIdentity.on('init', function(user) {
+          if (!user) {
+            window.netlifyIdentity.on('login', function() {
+              document.location.href = '/admin/';
+            });
+          }
+        });
+      }
+    </script>
   </body>
 </html>
