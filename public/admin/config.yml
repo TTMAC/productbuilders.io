@@ -41,7 +41,7 @@ collections:
           hint: "Select at least 1 discipline. Per DOMAIN_MODEL.md - articles use disciplines array."
         }
       - { label: "Tags", name: "tags", widget: "list", default: [], required: false }
-      - { label: "Draft", name: "draft", widget: "boolean", default: false }
+      - { label: "Draft", name: "draft", widget: "boolean", default: true, hint: "Uncheck when moving to 'Ready' in the editorial workflow to publish on the live site." }
       - { label: "Featured", name: "featured", widget: "boolean", default: false }
       - { label: "Hero Image", name: "heroImage", widget: "image", required: false }
       - { label: "Hero Image Alt", name: "heroImageAlt", widget: "string", required: false }
@@ -102,5 +102,5 @@ collections:
         }
       - { label: "Who Should Read", name: "whoShouldRead", widget: "text" }
       - { label: "Affiliate Link", name: "affiliateLink", widget: "string", required: false }
-      - { label: "Draft", name: "draft", widget: "boolean", default: false }
+      - { label: "Draft", name: "draft", widget: "boolean", default: true, hint: "Uncheck when moving to 'Ready' in the editorial workflow to publish on the live site." }
       - { label: "Body", name: "body", widget: "markdown" }
